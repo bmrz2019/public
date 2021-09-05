@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#43200 is 12 hours
+#10800 is 3 hours
+upSeconds=`cat /proc/uptime`
+upSeconds=${upSeconds%%.*}
+
+# set default for SYSTEMNAME
+[ -z "$SYSTEMNAME" ]  && SYSTEMNAME=$(hostname -s)
+
+if [ "${upSeconds}" -le 43200 ]; then
+   exit 0
+fi
+
+lock_file="/tmp/cron_yum.lock"
+if [ -f $lock_file ] ; then
+  echo "Lockfile exists, aborting."
+  exit 0
+fi
+touch $lock_file
+
+
+YUMTMP=$(mktemp /var/run/yum-cron.XXXXXX)
+touch $YUMTMP
+[ -x /sbin/restorecon ] && /sbin/restorecon $YUMTMP
+
+{
+    /usr/bin/yum -e 0 -d 0 -y check-update 1> /dev/null 2>&1
+    case $? in
+      1)   exit 1;;
+      100) echo "New updates available for host `/bin/hostname`";
+           /usr/bin/yum -y -C check-update
+      ;;
+    esac
+} >> $YUMTMP 2>&1
+
+# use mail command (ie better than standard mail with cron output) 
+if [ -x /bin/mail ]; then
+  [ -s "$YUMTMP" ] && mail -s "cron.weekly yum update: $SYSTEMNAME" user@example.com < $YUMTMP 1> /dev/null 2>&1
+else
+# default behavior is to use cron's internal mailing of output from cron-script
+  cat $YUMTMP
+fi
+rm -f $YUMTMP $lock_file
+
+exit 0
+

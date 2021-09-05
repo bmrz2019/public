@@ -1,0 +1,1 @@
+boot=UUID=47C8-E9C9 disk=UUID=0c7dfb32-39c5-44b5-8ca1-a1b063250d65 quiet 

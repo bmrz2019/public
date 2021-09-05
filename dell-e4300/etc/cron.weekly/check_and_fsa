@@ -1,0 +1,36 @@
+#!/bin/bash
+
+upSeconds=`cat /proc/uptime`
+upSeconds=${upSeconds%%.*}
+
+#43200 is 12 hours
+#10800 is 3 hours
+if [ "${upSeconds}" -le 10800 ]; then
+   exit 0
+fi
+
+DIRECTORY=/home/USERNAME/.FSA/root_backup_sda_dell_E4300
+
+if [ ! -d "$DIRECTORY" ]; then
+  echo $DIRECTORY "doesn't exist. Exiting gracefully."
+  exit 0
+fi
+
+
+FREE=`df -k --output=avail /home| tail -n1`
+echo $FREE
+
+if [[ $FREE -gt 2097152 ]]; then 
+     # 10G = 10*1024*1024 = 10485760
+     # 2G  = 2*1024*1024 = 2097152
+     new_dir=`date +%F`
+     cd $DIRECTORY
+     mkdir "$new_dir"
+     cd "$new_dir"
+#Edit below
+     tar zcf etc.tar.gz -C / etc
+     fsarchiver savefs -A -z5 sda2-root.fsa /dev/sda2
+     sleep 5
+     md5sum * | tee MD5SUMS
+fi
+exit 0

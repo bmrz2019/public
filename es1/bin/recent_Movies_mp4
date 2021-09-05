@@ -1,0 +1,30 @@
+#!/bin/bash
+
+shopt -s globstar
+IFS=$'\n' # Input Field Separator
+#find ~/TV.Shows/ -type d -mtime -1
+
+
+for ldir in `find ~/Videos -type d -mtime -1 ! -empty`
+do
+  #echo $ldir
+  cd $ldir
+# for FILENAME_I in `find ~/Videos -type f -mtime -15 ! -empty`
+# for FILENAME_I in `find ~/Videos -maxdepth 1 -type f -mtime -11 \( -iname English\* -o -iname Tamil\* -o -iname \*.mkv -o -iname \*.mp4 \)`
+# for FILENAME_I in `find . -maxdepth 1 -type f -printf '%T+ %p\n' | sort -r | head -n 10  | cut -d ' ' --complement -f 1`
+  for FILENAME_I in `find . -maxdepth 1 -type f \( -iname English\* -o -iname Tamil\* \) -printf '%T+ %p\n' | sort -r | head -n 10  | cut -d ' ' --complement -f 1`
+    do
+      if [ -e $FILENAME_I ]; then
+      echo $FILENAME_I
+      # BASE=`basename $FILENAME_I mp4`
+      ~/bin/adb-sync $FILENAME_I /storage/4054-1A1B/
+      sleep 1
+       else
+        echo $FILENAME_I "File missing"
+      fi
+   done
+  cd $DIR
+done
+
+
+exit 0

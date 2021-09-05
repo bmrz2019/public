@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "git init"
+echo "git add README.md"
+echo "git commit -m commit-comment"
+echo "git remote add origin git@github.com:username/repo-name.git"
+echo "git push -u origin master "

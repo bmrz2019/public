@@ -1,0 +1,11 @@
+#!/bin/bash
+
+find ./ -type f -printf '%T+ %p\n' | sort | head -n 100 > /tmp/1
+cut -c32- /tmp/1 | awk '{print "rm -i", "\""$_"\""}'> /tmp/2
+bash /tmp/2
+
+
+#find -type f -printf '%T+ %p\n' | sort | head -n 100 > /tmp/1
+#cut -c32- /tmp/1 | awk '{print "rm -i", "\""$_"\""}'> /tmp/2
+#bash /tmp/2
+

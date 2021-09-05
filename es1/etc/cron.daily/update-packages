@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+apt-get autoclean
+sleep 1
+
+apt-get update
+sleep 1
+
+apt-get -f install firefox chromium-browser
+sleep 1
+/usr/local/bin/youtube-dl -U
+sleep 1
+
+exit 0

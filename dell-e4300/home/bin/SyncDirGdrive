@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd 
+mkdir .FSA
+cd .FSA
+mkdir root_backup_sda_dell_E4300
+gdrive --config /home/USERNAME/.gdrive-USERNAME mkdir root_backup_sda_dell_E4300
+#Gdrive responds after creating a directory as shown below
+#Directory TRTRTRRTRTRTRTRxTZnZMcUZTGGG created
+gdrive --config /home/pi/.gdrive-USERNAME sync upload root_backup_sda_dell_E4300 Random_code_of_directory_obtained_from_previous_step 
+cd /home/USERNAME
+gdrive --config /home/pi/.gdrive-USERNAME sync upload root_backup_sda_dell_E4300 Random_code_of_directory_obtained_from_previous_step
+
+exit 0

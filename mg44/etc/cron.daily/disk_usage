@@ -1,0 +1,9 @@
+#!/bin/bash
+
+CURRENT=$(df / | grep / | awk '{ print $5}' | sed 's/%//g')
+if [[ $CURRENT -gt 90 ]]; then
+  FREE=$(df -h / | grep / | awk '{ print $4}')
+  echo "Low disk space root in $HOSTNAME Only $FREE available."  | mail -s "Warning low disk space in $HOSTNAME" root
+fi
+
+exit 0

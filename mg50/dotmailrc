@@ -1,0 +1,9 @@
+set from="Host name <root@example.com>"
+set smtp="smtp.example.com:587"
+set smtp-use-starttls
+set smtp-auth=login
+set smtp-auth-user=noreply@example.com
+set smtp-auth-password=redacted
+set nss-config-dir=/etc/pki/nssdb
+set ssl-verify=ignore
+

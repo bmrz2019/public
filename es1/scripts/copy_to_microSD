@@ -1,0 +1,11 @@
+lastcopy()
+{
+rm -f /tmp/copy_59GB
+touch /tmp/copy_59GB
+find /TV.Shows/ -type f -iname "*mp4" -mtime -5 > /tmp/ss
+cat /tmp/ss
+awk '{print "rsync --bwlimit=900 --modify-window=999999 --size-only -Phvi "$1 " /59GB/  ; sleep 4"}' /tmp/ss > /tmp/copy_59GB
+chmod +x /tmp/copy_59GB
+/tmp/copy_59GB
+}
+

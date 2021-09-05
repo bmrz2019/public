@@ -1,0 +1,68 @@
+#!/bin/bash
+
+upSeconds=`cat /proc/uptime`
+upSeconds=${upSeconds%%.*}
+#3hours
+if [ "${upSeconds}" -le 10800 ]; then
+   exit 0
+fi
+
+lock_file="/tmp/cron_rsync.lock"
+if [ -f $lock_file ] ; then
+  echo "Lockfile exists, aborting."
+  exit 0
+fi
+touch $lock_file
+current_date=`date +%F`
+
+if [ -d /localbackup/home ]; then
+	    #echo "HOME is mounted"
+	    rsync --log-file=/tmp/$current_date"-rsync_HOME.log" -ivPHAaXx --numeric-ids --progress --del /home/ /localbackup/home/  > /dev/null 2>&1
+       cat /tmp/$current_date"-rsync_HOME.log" | mail -s "mg44 rsync_HOME" root
+	else
+	    touch /tmp/$current_date"-rsync_HOME-error.log"
+	    echo "/localbackup/home not mounted" | mail -s "mg44 rsync_HOME" root
+fi
+if [ -d /localbackup/vbox ]; then
+	    #echo "vbox is mounted"
+	    rsync --log-file=/tmp/$current_date"-rsync_VBOX.log" -ivPHAaXx --numeric-ids --progress --del /vbox/ /localbackup/vbox/  > /dev/null 2>&1
+       cat /tmp/$current_date"-rsync_VBOX.log" | mail -s "mg44 rsync_VBOX" root
+	else
+	    touch /tmp/$current_date"-rsync_VBOX-error.log"
+	    echo "/localbackup/vbox not mounted" | mail -s "mg44 rsync_VBOX" root
+	    #echo "drive not mounted"
+fi
+rm $lock_file
+
+
+exit 0
+
+DSM_DIR=/opt/tivoli/tsm/client/ba/bin/
+DSM_LOG=/opt/tivoli/tsm/client/ba/bin/
+LANG=en_US
+LC_ALL=en_US
+
+ulimit -c unlimited
+ulimit -s unlimited
+ulimit -u unlimited
+
+
+
+export DSM_DIR DSM_LOG LANG LC_ALL
+
+cd /tmp
+ps -e | grep dsmc  > /dev/null
+result=$?
+
+if [ "$result" -eq '0' ] ; then
+        #echo "Process running"
+        #echo $result
+        ps -e | grep dsmc  > /dev/null
+else 
+        dsmc sched >/dev/null 2>&1 &
+        #mail -s "from mg44 running dsmc-scheduler now" root < /dev/null
+        #dsmc incr
+        #echo "Process NOT running"
+        #echo $result
+fi
+

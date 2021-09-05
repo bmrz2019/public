@@ -1,0 +1,17 @@
+#!/bin/sh
+
+
+rm -f /var/log/wtmp.1
+rm -f /var/log/syslog.1
+rm -f /var/log/kern.log.1
+rm -f /var/log/dpkg.log.1
+rm -f /var/log/btmp.1
+rm -f /var/log/auth.log.1
+rm -f /var/log/alternatives.log.1
+
+rm -f /var/log/kern.log.2.gz
+rm -f /var/log/dpkg.log.2.gz
+rm -f /var/log/auth.log.2.gz
+
+rm -f /var/log/lightdm/*.gz
+exit 0

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+#43200 is 12 hours
+upSeconds=`cat /proc/uptime`
+upSeconds=${upSeconds%%.*}
+
+if [ "${upSeconds}" -le 43200 ]; then
+   exit 0
+fi 
+
+# Scrub all healthy pools.
+zpool list -H -o health,name 2>&1 | \
+	awk 'BEGIN {FS="\t"} {if ($1 ~ /^ONLINE/) print $2}' | \
+while read pool
+do
+	zpool scrub "$pool"
+done
+
+exit 0
+

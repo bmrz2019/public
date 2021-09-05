@@ -1,0 +1,13 @@
+#!/bin/bash
+
+temp_a=`smartctl -A /dev/sda| grep Temperature_Celsius | awk '{print $10}'`
+temp_b=`smartctl -A /dev/sdb| grep Temperature_Celsius | awk '{print $10}'`
+temp_c=`smartctl -A /dev/sdc| grep Temperature_Celsius | awk '{print $10}'`
+temp_d=`smartctl -A /dev/sdd| grep Temperature_Celsius | awk '{print $10}'`
+temp_e=`smartctl -A /dev/sde| grep Temperature_Celsius | awk '{print $10}'`
+temp_f=`smartctl -A /dev/sdf| grep Temperature_Celsius | awk '{print $10}'`
+temp_g=`smartctl -A /dev/sdg| grep Temperature_Celsius | awk '{print $10}'`
+
+temp_CPU=`sensors | grep  "temp1" | awk '{print $2}'`
+
+curl "https://api.thingspeak.com/update.json?api_key=FAKE_API_KEY&field1=$temp_a&field2=$temp_b&field3=$temp_c&field4=$temp_d&field5=$temp_e&&field6=$temp_f&field7=$temp_g&field8=$temp_CPU" > /dev/null 2>&1

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#SBATCH --partition=namehere
+#SBATCH --mail-user=user@example.com
+#SBATCH --cpus-per-task=1
+#SBATCH --mail-type=NONE   # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --time=5-23:59:00
+#SBATCH --output=pmut_-%j.out
+
+#### Run this with sbatch  sbatch_compile_kernel
+
+date 
+nproc
+free -g
+
+#wget https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.10.tar.gz
+#tar xf linux-3.10.tar.gz
+#tar xf linux-4.4.240.tar.xz
+#cd linux-3.10
+#cd linux-3.10
+cd /home/scratch/linux-4.4.240
+#make defconfig
+make clean
+make -j40 
+
+date 

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# TODO 
+# make this sort by file times
+find /path -type f -iname "*file-type" -mtime -2

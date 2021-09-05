@@ -1,0 +1,54 @@
+#!/bin/bash
+
+new_dir=`date +%F`
+DIRECTORY=/mnt/localbackup/fsarchiver/"$new_dir"
+
+#43200 is 12 hours
+#10800 is 3 hours
+upSeconds=`cat /proc/uptime`
+upSeconds=${upSeconds%%.*}
+
+if [ "${upSeconds}" -le 43200 ]; then
+   exit 0
+fi
+
+lock_file="/tmp/cron_fsa.lock"
+if [ -f $lock_file ] ; then
+  echo "Lockfile exists, aborting."
+  exit 0
+fi
+touch $lock_file
+
+mkdir $DIRECTORY
+if [ ! -d "$DIRECTORY" ]; then
+ # will enter here if $DIRECTORY doesn't exist.
+    echo "ALERT NO_DIR cron.weekly.fsarchiver in $HOSTNAME failed" | mail -s "ALERT cron.weekly.fsarchiver in $HOSTNAME failed" user@example.com
+ exit 0
+fi
+
+cd $DIRECTORY
+
+##First backup GRUB-mbr
+#dd if=/dev/sda of=mbr-backup bs=512 count=1
+lsblk > LSBLK
+tar zcf etc.tar.gz -C / etc
+
+ROOT_PARTITION=`mount | grep -i "on / " | awk '{print $1}'`
+fsarchiver -A -s 700 -j1 savefs root.fsa $ROOT_PARTITION > /dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+    #echo OK
+    echo "SUCCESS cron.weekly.fsarchiver in $HOSTNAME successful." | mail -s "SUCCESS cron.weekly.fsarchiver in $HOSTNAME" user@example.com
+else
+    #echo FAIL
+    echo "ALERT FSARCHIVER cron.weekly.fsarchiver in $HOSTNAME failed" | mail -s "ALERT cron.weekly.fsarchiver in $HOSTNAME failed" user@example.com
+fi
+
+#echo "sleeping for 10 seconds"
+sleep 10
+md5sum * > MD5SUMS
+find /mnt/localbackup/fsarchiver -mtime +39 -exec rm -r '{}' \;
+rm $lock_file
+
+exit 0
+

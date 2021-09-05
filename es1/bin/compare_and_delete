@@ -1,0 +1,32 @@
+#!/bin/bash
+
+shopt -s globstar
+IFS=$'\n' # Input Field Separator
+#find ~/TV.Shows/ -type d -mtime -1
+
+DIR="/media/user/Ventoy/copy_to_hdd"
+DIR="/home/user/Videos"
+
+# for FILENAME_I in `find ~/Videos/ -type f -mtime -15 ! -empty`
+
+cd $DIR
+
+#for FILENAME_I in `find . -maxdepth 1 -type f -mtime -100 \( -iname \*.mkv -o -iname \*.mp4 \)`
+for FILENAME_I in `find . -maxdepth 1 -type f \( -iname \*.mkv -o -iname \*.mp4 \)  -printf '%P\n'`
+do
+     FILE_NOEXT=${FILENAME_I%.*}
+     #echo $FILE_NOEXT
+      if grep $FILE_NOEXT /home/user/Downloads/LIST_BMRZ.txt > /dev/null
+        then
+			#echo $FILE_NOEXT "Exists in bmrz"
+         #rm -f $FILENAME_I
+      # BASE=`basename $FILENAME_I mp4`
+      #  /home/user/bin/adb-sync $FILENAME_I /storage/emulated/0/Movies/
+         sleep 1
+        else
+         sleep 1
+        echo $FILE_NOEXT "Does not in bmrz"
+      fi
+done
+
+exit 0

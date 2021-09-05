@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#Copy files to FAT32 microSD card
+
+touch /tmp/copy
+find path -type f -iname "*filetype" -mtime -5 > /tmp/ss;
+cat /tmp/ss;
+awk '{print "rsync --bwlimit=900 --modify-window=999999 --size-only -Phvi "$1 " /path/  ; sleep 4"}' /tmp/ss > /tmp/copy_59GB;
+chmod +x /tmp/copy
+/tmp/copy

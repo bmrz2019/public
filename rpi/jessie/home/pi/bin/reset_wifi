@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
+
+
+ping -c 3 heise.de  > /dev/null 2>&1
+if [ $? -eq 0 ]
+then
+   #echo "Ping success"
+   #echo "TEST WIFI was interrupted" | mail -s "TEST WIFI $DATE" test@example.com
+   sleep 1
+else
+#echo "No network. Exiting..."
+   wpa_cli -i wlan0 reconfigure  > /dev/null 2>&1
+   DATE=`date +"%a-%b-%d"`
+   sleep 5
+   echo "ALERT WIFI was interrupted" | mail -s "ALERT WIFI $DATE" test@example.com
+fi
+

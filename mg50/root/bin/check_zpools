@@ -1,0 +1,30 @@
+#!/bin/bash
+
+upSeconds=`cat /proc/uptime`
+upSeconds=${upSeconds%%.*}
+#3hours
+if [ "${upSeconds}" -le 10800 ]; then
+   exit 0
+fi
+
+lock_file="/tmp/cron_local.lock"
+if [ -f $lock_file ] ; then
+  echo "Lockfile exists, aborting."
+  exit 0
+fi
+touch $lock_file
+current_date=`date +%F`
+
+if [ -x /sbin/zpool ]; then
+  SEARCH_ERRORS=$(/sbin/zpool status -x)
+  if [ "$SEARCH_ERRORS" == "all pools are healthy" ]; then
+      echo "INFO In $HOSTNAME all pools healthy." | mail -s "INFO in $HOSTNAME all pools healthy" noreply@example.com
+    else
+      echo "ALERT In $HOSTNAME problems with zpool." | mail -s "ALERT in $HOSTNAME problems with zpool" noreply@example.com
+  fi
+fi
+
+
+rm $lock_file
+exit 0
+

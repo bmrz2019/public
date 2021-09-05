@@ -1,0 +1,31 @@
+#!/bin/bash
+#43200 is 12 hours
+#10800 is 3 hours
+upSeconds=`cat /proc/uptime`
+upSeconds=${upSeconds%%.*}
+# set default for SYSTEMNAME
+[ -z "$SYSTEMNAME" ]  && SYSTEMNAME=$(hostname -f)
+
+if [ "${upSeconds}" -le 10800 ]; then
+   exit 0
+fi 
+
+LOCK_FILE="/tmp/cron_report_unattended-upgrades.lock"
+if [ -f $LOCK_FILE ] ; then
+  #echo "Lockfile exists, aborting."
+  exit 0
+fi
+touch $LOCK_FILE
+WHAT_DATE=`date +%F`
+LIST_OF_PACKAGES=""
+LIST_OF_PACKAGES=`grep "Packages that will be upgraded"  /var/log/unattended-upgrades/unattended-upgrades.log | grep $WHAT_DATE | awk -F"upgraded:" '{print $2}'`
+#LIST_OF_PACKAGES=`grep "Packages that will be upgraded"  /var/log/unattended-upgrades/unattended-upgrades.log | grep 2018-11-02 | awk -F"upgraded:" '{print $2}'`
+if [ ! -z "$LIST_OF_PACKAGES" ]; then
+    #echo $LIST_OF_PACKAGES
+    if [ -x /usr/bin/mail ]; then
+       echo "In $HOSTNAME the following packages were upgraded: $LIST_OF_PACKAGES" | mail -s "Unattended upgrades in $HOSTNAME" noreply@example.com 1> /dev/null 2>&1
+    fi
+fi
+rm -f $LOCK_FILE
+exit 0
+

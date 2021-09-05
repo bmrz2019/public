@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# use this to sync your local directory to raspberrypi
+#rsync -aiP $1 pi@192.168.x.x:~/destination-folder
+nocache rsync -ivPHAaXx --numeric-ids -e 'ssh -p1234 -T -o Compression=no' $1 pi@192.16x.x.x:/DESTINATION/

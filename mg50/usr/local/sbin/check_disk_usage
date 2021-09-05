@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#use $HOSTNAME
+
+#next line determines current % use
+CURRENT=$(df /home | grep / | awk '{ print $5}' | sed 's/%//g')
+if [[ $CURRENT -gt 90 ]]; then
+  FREE=$(df -h /home | grep / | awk '{ print $4}')
+  echo "Low disk space home in $HOSTNAME Only $FREE available."  | mail -s "Warning low disk space in $HOSTNAME" noreply@example.com
+fi
+
+CURRENT=$(df /mnt/mgfusion | grep / | awk '{ print $5}' | sed 's/%//g')
+if [[ $CURRENT -gt 90 ]]; then
+  FREE=$(df -h /mnt/mgfusion | grep / | awk '{ print $4}')
+  echo "Low disk space mgfusion in $HOSTNAME Only $FREE available."  | mail -s "Warning low disk space in $HOSTNAME" noreply@example.com
+fi
+
+CURRENT=$(df / | grep / | awk '{ print $5}' | sed 's/%//g')
+if [[ $CURRENT -gt 90 ]]; then
+  FREE=$(df -h / | grep / | awk '{ print $4}')
+  echo "Low disk space noreply@example.com in $HOSTNAME Only $FREE available."  | mail -s "Warning low disk space in $HOSTNAME" noreply@example.com
+fi
+
+exit 0
+
