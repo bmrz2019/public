@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+for domain in $RENEWED_DOMAINS; do
+   echo "Let's Encrypt certificate updated for $domain" | mail -s "Let's Encrypt certificate updated for $domain " root
+done
+

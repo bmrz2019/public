@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#43200 is 12 hours
+upSeconds=`cat /proc/uptime`
+upSeconds=${upSeconds%%.*}
+
+if [ "${upSeconds}" -le 43200 ]; then
+   exit 0
+fi
+
+lock_file="/tmp/certbot_lock"
+if [ -f $lock_file ] ; then
+  #echo "Lockfile exists, aborting."
+  exit 0
+fi
+
+touch ${lock_file}
+
+apt-get update
+apt-get -y install certbot
+
+rm -f /var/log/kern.log.2.gz
+rm -f /var/log/dpkg.log.2.gz
+rm -f /var/log/auth.log.2.gz
+rm -f /var/log/lightdm/*.gz
+
+LANG=en_US
+LC_TYPE=en_US
+
+sleep $((RANDOM % 10))
+#certbot renew  > /dev/null 2>&1
+certbot renew --quiet --deploy-hook /usr/local/sbin/deploy-hook-script
+
+
+rm $lock_file
+
+
+exit 0
+

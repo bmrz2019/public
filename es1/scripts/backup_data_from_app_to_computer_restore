@@ -1,0 +1,3 @@
+adb backup -f fedorahosted.freeotp.accounts.2016.data org.fedorahosted.freeotp
+
+adb restore fedorahosted.freeotp.accounts.2016.data

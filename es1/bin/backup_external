@@ -1,0 +1,42 @@
+#!/bin/bash
+
+
+DIRECTORY=/media/user/LUKS8TB/backup_everything/backupzpool8TB/dell_e6430s_home
+
+if [ ! -d "$DIRECTORY" ]; then
+  echo $DIRECTORY "doesn't exist. Exiting gracefully."
+  exit 0
+fi
+
+nocache rsync --delete --times -r --numeric-ids --progress \
+--exclude-from=/home/user/.rsync-homedir-excludes \
+/home/user /media/user/LUKS8TB/backup_everything/backupzpool8TB/dell_e6430s_home/
+
+exit 0
+## --info=progress2
+
+nocache rsync --times -r --numeric-ids --progress \
+--exclude=".gradle" \
+--exclude=".config/Google" \
+--exclude=".config/Signal" \
+--exclude="CacheStorage" \
+--exclude="File System" \
+--exclude="Extensions" \
+--exclude="thumbnails" \
+--exclude="hyphen-data" \
+--exclude="Service\ Worker" \
+--exclude="*iso" \
+--exclude="*ISO" \
+--exclude=".cache" \
+--exclude="leena" \
+/home/ /media/user/LUKS8TB/backup_everything/backupzpool8TB/dell_e6430s_home
+
+exit 0
+nocache rsync --delete  --size-only --times -r --numeric-ids --progress \
+--exclude=".cache" \
+--exclude="*iso" \
+--exclude="*ISO" \
+--exclude="P20" \
+--exclude=".config/chromium*" \
+--exclude=".gradle" \
+/home/user/ /media/user/700GB/backups/dell_e6430s_home/user/

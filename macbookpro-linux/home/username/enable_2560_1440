@@ -1,0 +1,9 @@
+#!/bin/bash
+
+xrandr --newmode 2560x1440a 146.27  2560 2680 2944 3328  1440 1441 1444 1465  -HSync +Vsync
+xrandr --addmode HDMI1 2560x1440a
+xrandr --output HDMI1 --mode 2560x1440a
+
+
+#xrandr --delmode HDMI1 2560x1440
+#gtf 2560 1440 30 from torvalds

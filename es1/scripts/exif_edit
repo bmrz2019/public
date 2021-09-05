@@ -1,0 +1,3 @@
+   48  exiftool -DateTimeOriginal+='4:1:11 0:0:0' .
+   49  exiftool -CreateDate+='4:1:11 0:0:0' .
+

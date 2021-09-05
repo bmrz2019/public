@@ -1,0 +1,30 @@
+#!/bin/bash
+
+
+lock_file="/tmp/localbackup_home_ext4.lock"
+if [ -f $lock_file ] ; then
+  #echo "Lockfile exists, aborting."
+  exit 0
+fi
+touch $lock_file
+current_date=`date +%F`
+
+#echo $current_date"-rsync.log"
+
+if [ "$(ls -A /mnt/localbackup)" ]; then
+	rsync -HAaXxq --partial --log-file=/tmp/$current_date"-localbackup.log" --exclude="*vdi" --exclude="*Trash*" --exclude="*iso" --exclude="*ova" /home/ /mnt/localbackup/home/
+	if [ $? -eq 0 ]; then
+	touch /tmp/$current_date"-localbackup_home_ext4-OK.log"
+#   	echo "SUCCESS cron.weekly.vdi in $HOSTNAME successful." | mail -s "SUCCESS cron.daily.vdi in $HOSTNAME successful" user@example.com
+    	#echo OK
+	fi
+else
+	touch /tmp/$current_date"-localbackup_home_ext4-error.log"
+   #echo "ALERT localbackup_home_ext4 in $HOSTNAME failed" | mail -s "ALERT localbackup_home_ext4 in $HOSTNAME failed" user@example.com
+	#echo "drive not mounted"
+fi
+
+find /tmp -iname "*-localbackup_home_ext4-OK.log" -mtime +7 -delete
+
+rm $lock_file
+exit 0

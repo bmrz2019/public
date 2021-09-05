@@ -1,0 +1,25 @@
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+menuentry 'SystemRescueCD (64-bit) ' {
+  load_video
+  insmod gzio
+  insmod part_gpt
+  insmod part_msdos
+  insmod ext2
+  search --no-floppy --label isos --set=root
+  set root=(hd0,msdos2)
+  loopback loop /systemrescuecd-amd64-6.1.7.iso
+  linux  (loop)/sysresccd/boot/x86_64/vmlinuz archisobasedir=sysresccd archisolabel=isos copytoram setkmap=de
+  echo   'Loading initramfs ...'
+  initrd (loop)/sysresccd/boot/x86_64/sysresccd.img
+}
+menuentry "lubuntu 19.10" {
+   set root=(hd0,msdos2)
+   set isofile="/lubuntu-19.10-desktop-amd64.iso"
+   loopback loop (hd0,msdos2)$isofile
+   linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$isofile noprompt noeject
+   initrd (loop)/casper/initrd
+}

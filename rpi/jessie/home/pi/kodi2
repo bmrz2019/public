@@ -1,0 +1,10 @@
+#!/bin/bash
+#http://forum.kodi.tv/showthread.php?tid=268099&pid=2313834#pid2313834
+
+kodi
+if [ "$?" = "0" ]; then 
+        killall kodi
+        fbset -depth 8 && fbset -depth 16
+        xrefresh
+fi
+

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#current_date=`date +%F`
+
+DSM_DIR=/opt/tivoli/tsm/client/ba/bin/
+DSM_LOG=/opt/tivoli/tsm/client/ba/bin/
+LANG=en_US
+LC_TYPE=en_US
+
+export DSM_DIR DSM_LOG LANG LC_ALL
+
+cd /root
+ps -e | grep dsmc  > /dev/null
+#systemctl is-active dsmcad > /dev/null
+result=$?
+
+if [ "$result" -eq '0' ] ; then
+   #echo "Process running and do not do anything"
+   #echo $result
+   #echo "Tivoli storage manager in $HOSTNAME already running." | mail -s "TSM in $HOSTNAME already running." root
+   sleep 1
+else
+   #echo "Process NOT running"
+   upSeconds=`cat /proc/uptime`
+   upSeconds=${upSeconds%%.*}
+   #3 min
+   if [ "${upSeconds}" -gt 180 ]; then
+      SINCE=`echo $((upSeconds/86400))" days"     $(date -d "1970-01-01 + $upSeconds seconds" "+%H hours %M minutes %S seconds")`
+      echo "ALERT TSM in $HOSTNAME was not running $SINCE. Now starting" | mail -s "ALERT  ALERT TSM in $HOSTNAME was not running $SINCE" root
+   else
+      echo "System reboot. Starting TSM in $HOSTNAME. " | mail -s "System reboot. Starting TSM in $HOSTNAME" root
+   fi
+   cd /root
+   nohup /usr/bin/dsmc sched >/dev/null 2>&1
+fi
+exit 0
+

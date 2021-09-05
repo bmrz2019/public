@@ -1,0 +1,9 @@
+set from="Raspberry Pi <sender@example.com>"
+set smtp="smtp.gmail.com:587"  
+set smtp-use-starttls  
+set smtp-auth=login  
+set smtp-auth-user="something@example.com"  
+set smtp-auth-password="putyour2fapass"  
+set nss-config-dir=/etc/pki/nssdb/  
+set ssl-verify=ignore
+

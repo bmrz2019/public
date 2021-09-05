@@ -1,0 +1,13 @@
+#!/bin/bash
+
+NUMBER_OF_FILES=$(find /path -type f \( -name '*.abc' -o -name '*.def' -o -name '*.ghi' \) -mtime -1  -printf "%f\n" | wc | awk '{ print $3}')
+
+DATE=`date +"%a-%b-%d"`
+if [[ $NUMBER_OF_FILES -gt 0 ]]; then
+  find /path -type f \( -name '*.abc' -o -name '*.def' -o -name '*.ghi' \) -mtime -1  -printf "%f\n" | mail -v -s `echo $DATE` example@example.com
+  else
+  echo "No new files" | mail -v -s `echo $DATE` example@example.com
+fi
+
+exit 0
+
