@@ -3,3 +3,17 @@
 
 # Options to pass to chromium-browser
 CHROMIUM_FLAGS=""
+
+
+##add api keys here
+GOOGLE_API_KEY=redacted
+GOOGLE_DEFAULT_CLIENT_ID=redacted.apps.googleusercontent.com
+GOOGLE_DEFAULT_CLIENT_SECRET=redacted
+
+
+export GOOGLE_API_KEY
+export GOOGLE_DEFAULT_CLIENT_ID
+export GOOGLE_DEFAULT_CLIENT_SECRET
+
+
+
