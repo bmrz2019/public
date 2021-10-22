@@ -1,6 +1,10 @@
+# subsync
+`/snap/bin/subsync -c sync -s old_subtitle.srt -r input.mp4 --ref-lang eng --sub-lang=eng --ref-stream-by-type=audio --out corrected_subtitle.srt`
+
+
 
 # Fdroid repos
-![alt text](https://raw.githubusercontent.com/realdmitchell/es1/master/fdroid_repo.png "Fdroid repo")
+https://github.com/bmrz2019/foxy-droid/releases/download/v1.5/foxy-droid-debug.apk
 
 # Sony SRS XB20
 With the speaker turned on, press and hold the – (volume) button and the  Power button at the same time for more than 5 seconds until the speaker turns off.
