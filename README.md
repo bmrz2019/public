@@ -2,6 +2,8 @@
 `/snap/bin/subsync -c sync -s old_subtitle.srt -r input.mp4 --ref-lang eng --sub-lang=eng --ref-stream-by-type=audio --out corrected_subtitle.srt`
 
 
+# Gcloud
+`curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -`
 
 # Fdroid repos
 https://github.com/bmrz2019/foxy-droid/releases/download/v1.5/foxy-droid-debug.apk
