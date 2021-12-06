@@ -1,3 +1,8 @@
+# yt-dlp
+`yt-dlp -f 'w[ext=mp4]'`
+`yt-dlp --min-sleep-interval 2 --max-sleep-interval 4  -f 'b' -S 'filesize~100M'`
+
+
 # subsync
 `/snap/bin/subsync -c sync -s old_subtitle.srt -r input.mp4 --ref-lang eng --sub-lang=eng --ref-stream-by-type=audio --out corrected_subtitle.srt`
 
