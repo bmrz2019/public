@@ -74,7 +74,16 @@ DefaultTimeoutStopSec=9s
 
 ```apt-get install -y openbox-lxde-session lxde-icon-theme  lxsession lxde-core lxappearance gtk-chtheme gkrellm-cpufreq  lxterminal pm-utils qpdfview ubuntu-mono inxi openjdk-11-jdk gkrellm-cpufreq
 
-apt-get purge lxlock
+apt-get purge xfce4-screensaver
+```
+
+# Add autostart
+
+```
+~/.config/autostart $ cat light-locker 
+#!/bin/bash
+
+light-locker &
 ```
 
 Final list of packages are in file packages.impish.txt
