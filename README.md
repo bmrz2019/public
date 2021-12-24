@@ -1,3 +1,10 @@
+# test for hibernate
+`user@laptop: ~ $ busctl call org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager CanHibernate`
+
+the result
+
+`s yes `
+
 # yt-dlp
 `yt-dlp -f 'w[ext=mp4]'`
 
