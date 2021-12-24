@@ -61,6 +61,14 @@ systemctl daemon-reload
 update-initramfs  -k all -u
 ```
 
+# systemd
+
+```
+/etc/systemd/system.conf
+
+DefaultTimeoutStartSec=30s
+DefaultTimeoutStopSec=9s
+```
 
 # Packages
 
