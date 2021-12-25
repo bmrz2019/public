@@ -1,0 +1,1373 @@
+! Removes video suggestions
+##.ytp-endscreen-content
+!youtube.com,youtubekids.com###related
+m.youtube.com##ytm-watch ytm-compact-video-renderer
+m.youtube.com##[section-identifier=related-items]
+/annotations_module.js$script,domain=youtube.com|youtu.be|youtube-nocookie.com
+! Seems to remove "Recommended for you" suggestions
+||youtube.com/related_ajax^
+
+! ——— YouTube ———
+! Note: Video suggestions after the video is finished, will not be shown.
+/endscreen.js$script,domain=youtube.com|youtu.be|youtube-nocookie.com
+youtube.com###head.ytd-compact-autoplay-renderer
+youtube.com##.checkbox-on-off
+youtube.com##.watch-sidebar-head
+m.youtube.com##.ytm-autonav-bar
+
+
+
+
+
+
+! 2020-10-15 https://www.foxnews.com
+www.foxnews.com##[src="//static.foxnews.com/static/orion/html/video/iframe/vod.html"]
+www.foxnews.com##.fade-in.video-player.m > .video-container
+www.foxnews.com##.contain > .video-container
+www.foxnews.com##.control
+
+
+[Adblock Plus 3.4]
+! Title: 🚪 Browse websites without logging in
+! Version: 11October2020v1
+! Expires: 3 days
+! Description: Are you tired of being nagged on by websites, that say "Log in to read more"? With this list, you'll be much less nagged on from now own.
+! For more information and details about this list and other lists of mine, visit https://github.com/DandelionSprout/adfilt/blob/master/Wiki/General-info.md#english
+!#include uBO%20list%20extensions/BrowseWebsitesWithoutLoggingIn-uBOExtension.txt
+
+! ↪️ = This category requires Redirector (https://einaregilsson.com/redirector/) and a related entry in Dandelion Sprout's Redirector List (https://github.com/DandelionSprout/adfilt/tree/master/Dandelion%20Sprout-s%20Redirector%20Assistant%20List) for the best results.
+! 📛 = This category requires using uBlock Origin for the best results.
+! 🌇 = One has to begin to browse the sites in this category from a content page, and not from the front page.
+! 🔨 = This category's entries are know to also break intentional login boxes for that site. Such entries may not be transferred to "uBlock Filters - Annoyances".
+! 📠 = Rejected from "uBlock Filters - Annoyances" and similar lists due to their content or dependencies.
+
+! ——— Multi-domain ———
+##.onp-sl-inner-wrap
+##.onp-sl-outer-wrap
+##.onp-sl-social-buttons
+##.onp-sl-overlap-background
+##.onp-sl-overlap-box
+! Pinterest (🔨?)
+||smartlock.google.com/iframe/request?client=http$subdocument
+! Autosport 📠
+||blueconic.net$third-party
+! https://linustechtips.com/main/topic/1133668-how-to-get-rid-of-green-fps-counter-with-beeping-sound/
+linustechtips.com,forum.malwarebytes.com,community.ccleaner.com#?#.cTopicPostArea:-abp-has(.cGuestTeaser):not(:-abp-has(.ipsComposeArea_editor))
+! theepochtimes.com
+||subs.youmaker.com^$third-party
+! fwi.co.uk
+*/plugins/pm-gating/
+
+! Aims to remove blurs of article previews
+##.Article-header-body:before
+##.paywall-fade
+##.article-container.locked:after
+##.card.stopsign__article.stopsign:before
+##.faded-article-content:after
+##.paywall-gradient
+##.fade-out-article.art_content::before
+
+! Facebook 🌇🔨
+! https://touch.facebook.com/Sonic/
+!! Removes the login bars
+b-m.facebook.com,b-m.facebookcorewwwi.onion,iphone.beta.facebook.com,iphone.facebook.com,iphone.facebookcorewwwi.onion,m.beta.facebook.com,m.facebook.com,m.facebookcorewwwi.onion,mobile.facebook.com,mobile.facebookcorewwwi.onion,mtouch.beta.facebook.com,mtouch.facebook.com,mtouch.facebookcorewwwi.onion,touch.beta.facebook.com,touch.beta.facebookcorewwwi.onion,touch.facebook.com,touch.facebookcorewwwi.onion,x.beta.facebook.com,x.facebook.com,x.facebookcorewwwi.onion###mobile_login_bar
+! Removes the remnants of a login banner
+b-m.facebook.com,b-m.facebookcorewwwi.onion,iphone.beta.facebook.com,iphone.facebook.com,iphone.facebookcorewwwi.onion,m.beta.facebook.com,m.facebook.com,m.facebookcorewwwi.onion,mobile.facebook.com,mobile.facebookcorewwwi.onion,mtouch.beta.facebook.com,mtouch.facebook.com,mtouch.facebookcorewwwi.onion,touch.beta.facebook.com,touch.beta.facebookcorewwwi.onion,touch.facebook.com,touch.facebookcorewwwi.onion,x.beta.facebook.com,x.facebook.com,x.facebookcorewwwi.onion###u_0_25._4b-b
+
+
+! Onet Zapytaj
+! https://github.com/DandelionSprout/adfilt/issues/7#issuecomment-520486904
+! Removes a (relatively friendly) account creation box
+zapytaj.onet.pl##.know-better-answer
+
+! Instagram
+! https://github.com/DandelionSprout/adfilt/issues/7#issuecomment-534171953
+! Removes a login overlay
+instagram.com###fb-root + div[role="presentation"]
+
+! SpanishDict
+! https://github.com/DandelionSprout/adfilt/issues/7#issuecomment-559903607
+! Removes a one-time account creation prompt
+spanishdict.com#?#.ReactModal__Overlay:-abp-has(video[src$="/bloom2.mp4"])
+
+! Die Zeit 📛
+! Makes the official article previews fully visible
+! https://www.zeit.de/2020/06/alfred-bauer-filmbuerokratie-nationalsozialismus-berlinale
+zeit.de#?#.paragraph--faded:style(overflow: visible !important)
+zeit.de#?#.paragraph--faded:before:style(background-image: none !important)
+zeit.de#?##paywall:style(top: 250px !important)
+
+! ScienceDirect
+! Removes a sudden, immediate and somewhat large account creation prompt
+! https://www.sciencedirect.com/topics/computer-science/network-connection
+sciencedirect.com##.usabilla__overlay
+
+! Pinterest (with mobile useragent) 🔨
+pinterest.*##div[style*="height: 100%; touch-action: none"]
+pinterest.*##div[role=button] + div[style*="touch-action: none"]
+
+! Pinterest 🔨
+pinterest.*##header[data-test-id=unauthHeader] ~ div[data-test-id=fullPageSignupModal]
+
+
+! The New Republic 📠🔨
+! https://github.com/easylist/easylist/issues/5331#issuecomment-627813147
+||validate.onecount.net/onecount/api/public^
+
+! PhotoblogPL
+!! Removes one of the 2 login lines on the frontpage
+photoblog.pl##.frontpage-teaser-photo-container > .register > #registration-form
+
+! Spiceworks
+!! Removes an account creation prompt that can sometimes show up in articles.
+community.spiceworks.com##.join-login-alt--six-second
+community.spiceworks.com#?#body.sui-u-no-scroll:style(overflow: auto !important)
+
+! Glassdoor
+!! Removes an impassable login prompt on candidate interview pages in particular
+! https://github.com/DandelionSprout/adfilt/issues/63#issuecomment-631091688
+||glassdoor.com^*/gd-user-hardsell-overlay.
+
+! Minerva (Norway) 📠
+minervanett.no##.paywallTeaser
+minervanett.no##.teaserContent:before
+
+! YouTube
+! https://github.com/DandelionSprout/adfilt/issues/63#issuecomment-678544030
+www.youtube.com#?#ytd-popup-container > .ytd-popup-container[role=dialog]:-abp-has(a[href="https://support.google.com/youtube/?p=sign_in"])
+
+! https://tekinvestor.no/
+tekinvestor.no###full-page-signup-cta
+
+! ——————————————————————————————————————————————————————————————————————
+
+! Below are entries that I borrowed from «Strappazzon's Annoyances filter list», which is maintained by https://github.com/Strappazzon at https://raw.githubusercontent.com/Strappazzon/filterlists/master/Filterlists/Annoyances.txt, and which is licenced under MIT.
+! Amazon
+!! "Sign In" hint 📛
+amazon.*##.nav-flyout.nav-signin-tt
+! Trello
+!! "Try Trello - It's Free" overlay
+trello.com##.soft-block-overlay.window-overlay
+!! "Sign Up" banner
+trello.com##.mod-warning.header-banner
+! Spotify
+!! Sign Up banner
+open.spotify.com##.Root__now-playing-bar > .now-playing-bar-container > ._2xTC2WcXRpmoZBliqieiS9
+open.spotify.com##.Root__now-playing-bar > .now-playing-bar-container > ._2UzxvZHwCBmRIowVNIeNvU
+! Medium
+!! Sign Up nag (overlay)
+medium.com,hackernoon.com##.overlay--light.overlay
+
+! ——————————————————————————————————————————————————————————————————————
+
+! Below are entries that I borrowed from «Membership App List», which is maintained by https://github.com/jasonbarone at https://raw.githubusercontent.com/jasonbarone/membership-app-block-list/master/membership-app-block-list.txt, and which is believed to not have stated a licence nor copyright. 📠
+
+! SentryLogin app blocking filters
+sentrylogin.com/sentry/scripts/*
+##.Sentry_blanket
+###SentryOverlay
+
+! MyMemberspace app blocking filters
+mymemberspace.com/assets/api/*
+cdn.mymemberspace.com/*
+cdn.memberspace.com/*
+memberspace.com/member*
+###__memberspace_modal_protected_page
+###__memberspace_modal_container
+###__memberspace_modal_background
+###__memberspace_memberlogin_button
+###__memberspace_modal_iframe
+
+! MembershipWorks app blocking filter
+cdn.membershipworks.com*
+
+! ——————————————————————————————————————————————————————————————————————
+
+! Below are entries that I borrowed from «AdblockFilters», which is maintained by https://github.com/brettzink at https://raw.githubusercontent.com/brettzink/AdblockFilters/master/filters.txt, and which is believed to not have stated a licence nor copyright.
+! Courier 📠
+||findlaycourier-oh-pw.newsmemory.com/?meter
+
+! ——————————————————————————————————————————————————————————————————————
+
+! Entries below are fixed in «uBlock Filters - Annoyances» as of the 12th of July 2019, but are also in this list to serve minimal-setup and ABP users.
+
+! Facebook
+!! Removes the main login prompt when browsing an account's timeline
+facebook.com,facebookcorewwwi.onion##._5hn6
+!! Attempts to remove the "Not logged in" dialog window that shows up further down on the timelinw
+facebook.com,facebookcorewwwi.onion##.generic_dialog_modal.pop_dialog
+
+
+
+! Pinterest ↪️📛🌇 (Fixed in "uBlock Filters - Annoyances", except for the Redirector portion of it)
+! For very important notes about Pinterest, see https://github.com/DandelionSprout/adfilt/issues/26.
+!! Removes the login prompt when browsing down on a page
+pinterest.*##div[data-test-id="giftWrap"]
+!! Removes the login prompts when opening the "Full page modal scroller" (Which was very hard to do without removing the intentional login prompt)
+pinterest.*##div[class="Closeup__wrapper"] > div > div[style^="cursor: default"]
+pinterest.*##.Hsu.iyn.zI7:nth-of-type(2) > div > .FullPageModal__scroller
+!! Removes the "Open" overlay on images, so that their raw versions can more easily be opened
+pinterest.*##.GrowthUnauthPinImage > a > div[class^="Jea"]:has(button[class^="noButtonStyles "])
+pinterest.*##div[class="GrowthUnauthPinImage__imageDim"]
+
+! Opera Add-Ons
+!! Removes fullscreen prompt about installing Opera
+addons.opera.com###overlay
+
+! Deezer
+!! Removes login prompt
+deezer.com###modal_login:upward(2)
+
+! Instagram
+! https://github.com/DandelionSprout/adfilt/issues/25
+!! Removes the bottom login banner
+instagram.com#?#.ZUqME:-abp-has(a[href^="/accounts/emailsignup/"])
+! (Note to self: If this entry ceases to work, replace it with "instagram.com#?#div[class*=" "]:-abp-has(> div > div > div > a[class][href^="/accounts/emailsignup/"])", as per https://github.com/DandelionSprout/adfilt/issues/25#issuecomment-458347604.)
+
+! Ooopic
+!! Removes uncloseable login prompt
+ooopic.com###public-mask-login
+
+! Stack Exchange and related sites
+!! Removes the "Here's how it works" banner at the top
+stackexchange.com,askubuntu.com,serverfault.com,superuser.com,mathoverflow.net,stackapps.com#?#.js-dismissable-hero:-abp-contains(Sign up)
+
+! Mr. Food
+!! Removes an uncloseable newsletter prompt
+mrfood.com###newsletterSignUpDivAnime
+mrfood.com###viewportGreyout
+mrfood.com##.in-content-container-coverage
+
+! The Clever
+!! Removes a large and invisible banner on very tall monitors that prevents clicking on parts of the page
+theclever.com###overlay_search
+
+! thredUP
+!! Removes uncloseable login prompt that randomly appears after browsing between 2 or 3 pages
+thredup.com##.modal-underlay
+thredup.com##.redux-modal
+
+! Quizlet 📛
+!! Makes all the flashcards on the vertical list visible
+!! It appears to me that all flashcards are viewable upon entering their fullscreen mode
+quizlet.com##.SignupWallInline-overlay
+
+! Feedspot
+!! Removes an uncloseable login prompt
+feedspot.com##.blackout
+feedspot.com##.regoverlay
+feedspot.com##.mfp-container
+feedspot.com##.fadeIn.animated
+feedspot.com##.fixedBar
+
+! VolunteerMatch
+!! Removes an uncloseable login prompt
+volunteermatch.org###window_overlay
+volunteermatch.org###req_login_reg_interrupt
+
+! Be Pro Be Proud
+!! Removes a login prompt that for some reason takes you back to the top of the page if you try to click on its X button
+beprobeproud.org##.movement-popup
+
+! Bēhance
+! https://github.com/DandelionSprout/adfilt/issues/30
+! Removes a small login modul in the lower right
+behance.net##.Popup-popup-T3F
+
+! Zulily
+! https://www.zulily.com/e/sew-on-and-sew-forth-338868.html
+!! Aims to remove the forced login overlay, without breaking the login button in the upper right
+!#if !ext_ublock
+zulily.com###loginModal[aria-hidden="false"]:not([aria-describedby="subtitle-signin"])
+!#endif
+
+! The Australian Frequent Flyer
+! https://www.australianfrequentflyer.com.au/community/whats-new/latest-activity
+! Removes a login info banner on the top of some pages
+australianfrequentflyer.com.au##.focus-guest-alert.focus-guest
+
+! FM.to
+! https://github.com/DandelionSprout/adfilt/issues/7#issuecomment-483040002
+! Removes an uncloseable login nag that occurs after 30sec
+fm.to###popup_guest
+fm.to##.modal-backdrop
+! Removes an uncloseable login nag that occurs when clicking on a song's info button 🔨
+fm.to##.modal-content
+fm.to###loginModal
+fm.to##.blockOverlay.blockUI
+
+! MySQL
+! https://dev.mysql.com/downloads/file/?id=486042
+dev.mysql.com##.login-callout
+! ——————————————————————————————————————————————————————————————————————
+
+! Entries below are fixed in other lists that are included in uBO as of the 2nd of March 2019, but are also in this list to serve minimal-setup and ABP users.
+
+! GitHub (Fixed in "AdGuard Annoyances filter" and "Fanboy's Annoyance List")
+github.com##.signup-prompt
+
+! InvestingCOM (Fixed in "AdGuard Annoyances filter")
+! https://github.com/DandelionSprout/adfilt/issues/33
+! Removes a login popup that shows up the first time the site is visited
+investing.com###PromoteSignUpPopUp
+
+! Reverso Context (Fixed in "AdGuard Annoyances filter")
+! Removes a small login prompt in the bottom left
+context.reverso.net###register-popup-bottom
+
+[Adblock Plus 3.4]
+! Title: 🔴 Anti-'Unnecessary notification counters' List
+! Version: 19March2020v1-Alpha
+! Expires: 7 days
+! Description: Having something display a permanent fake notification counter, to make the users think that they've received a notification when they haven't, takes quite a bit of scumminess on the maker's behalf to pull off. Here's how to filter them out of sight.
+! For more information, details, helpful tools, and other lists that I've made, visit https://github.com/DandelionSprout/adfilt/blob/master/Wiki/General-info.md#english
+
+! Google Play Store
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.allmessages.inonemessenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.barleymobile.mms"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.bestringtonesapps.freeringtonesforandroid"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.betmesage.socialmessager"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.calea.echo"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.callapp.contacts"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.callerid.block"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.cumong.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.domobile.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.ezapp.dual.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.fast.messages.social.messenger.free"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.godza.forecastweather"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.hakomuna"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.heyemoji.onemms.flat"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.icq.mobile.client"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.jb.gosms.pctheme.newmessengerversion2017"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.jb.mail"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.link.messages.sms"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.litefb.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.mapswithme.maps.pro"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.melonsapp.privacymessenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.messagingnew.allinone"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.messengerforall.messagingpro"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.q2developer.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.sms.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.textu.sms.privacy.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.trtf.blue"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.unseen.hidelastseen.noseen"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=comm.mailboxall.inone"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=eshbuildgroup.our.com.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=facebook.lite.messengerlite"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=me.bluemail.mail"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messages.messenger.messages"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messages.messenger.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=Messenger+:+Free+Videos,Text,+Messages"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messenger.chat.social.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messenger.facebooklite.messengerforfacebook"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messenger.free.video.call.chat"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messenger.messenger.messanger.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messenger.messenger.messenger.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messenger.messenger.videocall.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messenger.pro.messenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messenger.social.chat.apps"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=messengertalk.videochat.messenger.easymessenger"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=park.exchange.client.app"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=park.hotm.email.app"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=ru.mail.mailapp"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=ru.ok.messages"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=text.free.messenger.com.mymessengers2018"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.mail.emailapp.easymail2018"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.mastercomlimited.cardriving_t"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.play365.ultramike"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.boxitsoft.battleofwizards"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.extremefungames.mototrafficrace"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.strategygame.gameofwarriors"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.playappking.ametalsoldiers"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.tap4fun.callofsparta"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.gdcompany.metalmadness"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.EvilChaotic.ModernWarplanes"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.gdcompany.deepwaters"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.polyplayinc.combatassault"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.CubeSoftware.BattleOfWarships"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.godza.weatherapps2019"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.godza.audiorecorder"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.godza.weatherpapanoel"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=ru.azurinteractive.robotwarfare"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.zonmob.HeroLegend.KingdomDefense"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=com.worldofbattleships.warofpacificrim"])
+play.google.com#?#.no-rationale.card:-abp-has(a[href*="apps"]):-abp-has([href*="=mobi.ifunny"])
+
+! Other fake counters
+philips.*##.p-discount.p-promotion-lens-xs.p-promotion-lens
+my.nintendo.com##.badge
+sidereel.com##.anonymous .notifications-count
+arabiaweather.com##.red-dot.anonymous-user-only:after
+fanpage.it##.button-notifications
+17track.net##.avatar-away > i
+
+! Counters that are technically real, but which can't be dismissed with ease at all
+portalbank.no##li.navigation__item:nth-of-type(6):after
+
+! Counters for things that probably shouldn't have had counters for them, e.g. 'Breaking News' feeds
+timesofindia.com##.track:before
+timesofindia.com##.id_track:after
+
+! Online presence counters that are extremely unreliable
+mewe.com##.chat-avatar_dot
+mewe.com##.h-dot
+
+[Adblock Plus 3.4]
+! Title: 🎛 Reddit Trash Removal Service
+! Version: 15October2020v1-Beta
+! Expires: 3 days
+! Description: Reddit can have some good places and posts, but unfortunately 95% of it is also a large pile of echo chambers whose only equivalent is 8kun. So if you only browse Reddit for its humouristical and artistical subreddits, this list will massively help you focus on those things.
+! Some categories in this list only supports New Reddit, because let's be honest: It's so much better to be able to actually see the posts' images from the timelines, instead of having to open every single thread to see if their images are noteworthy or not.
+! For more information, details, helpful tools, and other lists that I've made, visit https://github.com/DandelionSprout/adfilt/blob/master/Wiki/General-info.md#english
+
+!#if !env_mobile
+! Removes sitewide feeds from the dropdown menu, on the assumption that they contain posts from bad subreddits
+! Dropdown menu
+reddit.com###focus-All
+reddit.com###focus-OC
+reddit.com###focus-Home
+! Top navigation bar
+reddit.com###header-quicklinks-oc
+reddit.com###header-quicklinks-popular
+reddit.com###header-quicklinks-all
+reddit.com##div[role=navigation]
+! The user feed, if I don't remember completely wrong
+reddit.com#?#ul.hover.sr-bar.flat-list > li:-abp-has(a[href*="/r/all/"])
+reddit.com#?#ul.hover.sr-bar.flat-list > li:-abp-has(a[href*="/r/popular/"])
+reddit.com#?#ul.hover.sr-bar.flat-list > li:-abp-has(a[href*="/r/random/"])
+
+! Removes hard-to-close cookie banners on Imgur embeds
+||quantcast.mgr.consensu.org$domain=reddit.com|imgur.com
+
+! Subreddits that have extremely messed-up criteria for what is considered to be banworthy
+! Known to ban everyone who are not ultraconservative:
+||reddit.com/r/conservative$document
+||reddit.com/r/conspiracy^$document
+||reddit.com/r/Republican^$document
+||reddit.com/r/JusticeServed^$document
+||reddit.com/r/GamersRiseUp^$document
+! Known to ban all furries:
+||reddit.com/r/antifurry_irl^$document
+||reddit.com/r/yiffinhell^$document
+! Known to ban all men:
+||reddit.com/r/FemaleDatingStrategy^$document
+||reddit.com/r/PinkpillFeminism^$document
+! Known to ban all Europeans:
+||reddit.com/r/dankmemes^$document
+! Known to ban most of their white users:
+||reddit.com/r/blackpeopletwitter^$document
+||reddit.com/r/CurlyHair^$document
+
+! Subreddits known to condone mass-murders or the notion of such to varying degrees
+! Known to condone mass murdering of Jews:
+||reddit.com/r/POLITIC^$document
+||reddit.com/r/multiculturalcancer^$document
+||reddit.com/r/IsraelExposed^$document
+||reddit.com/r/debatealtright^$document
+||reddit.com/r/jewishcontributions^$document
+||reddit.com/r/TeamHeckleBerry^$document
+||reddit.com/r/ClericalFascism^$document
+||reddit.com/r/NaziFreeMDE^$document
+! Known to condone mass murdering of non-Christians:
+||reddit.com/r/the3rdposition^$document
+||reddit.com/r/AltRightChristian^$document
+||reddit.com/r/kotakuinaction2^$document
+||reddit.com/r/WhiteBiblicalNation^$document
+! Known to condone mass murdering of women:
+||reddit.com/r/MGTOW^$document
+||reddit.com/r/Celouts^$document
+||reddit.com/r/shortcels^$document
+! Known to condone mass murdering of Afro-Americans:
+||reddit.com/r/SubforWhitePeopleOnly^$document
+||reddit.com/r/TruePoliticalHumor^$document
+||reddit.com/r/HardUnpopularOpinon^$document
+||reddit.com/r/13do50^$document
+! Known to condone mass murdering of one or more LGBTQ categories:
+||reddit.com/r/AntiLGBTQplus^$document
+||reddit.com/r/islamicsub^$document
+||reddit.com/r/dogeright^$document
+||reddit.com/r/KotakuInAction^
+! Known to condone mass murdering of anti-PR-China entities; including student protesters and Uyghurs:
+||reddit.com/r/sino^$document
+! Known to condone mass murdering of non-ultraconservatives:
+||reddit.com/r/DefinitelyNOTboogaloo^$document
+! Known to promote fake screenshots in order to incite violence and hanging of users of competing subreddits:
+||reddit.com/r/WatchRedditDie^$document
+! Known to condone mass murdering of Chinese people:
+||reddit.com/r/ChineseTourists^$document
+
+! Posts whose scores are lower than a certain amount (New Reddit)
+! The default for all subreddits is 10 points, although this can be adjusted for a handful of subreddits whose quality levels are deemed to sharply increase with a higher or lower limit.
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp]:not([href*="/mapswithoutnz/"])):-abp-has(button + div:-abp-contains(/^[0-9]$/))
+reddit.com#?#.Post:-abp-has(span + a[data-click-id=timestamp]:not([href*="/MapsWithoutNZ/" i])):-abp-has(span[style^="color:"]:nth-of-type(1):-abp-contains(/^[0-9]\xA0/))
+! 5 points
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/mapswithoutnz/"]):-abp-has(button + div:-abp-contains(/^[0-4]$/))
+reddit.com#?#.Post:-abp-has(span + a[data-click-id=timestamp][href*="/MapsWithoutNZ/" i]):-abp-has(span[style^="color:"]:nth-of-type(1):-abp-contains(/^[0-4]\xA0/))
+! 15 points
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/dontdeadopeninside/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-4]$/))
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/assholedesign/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-4]$/))
+! 20 points
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/ihadastroke/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-9]$/))
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/BoneAppleTea/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-9]$/))
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/BestOfReports/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-9]$/))
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/showerthoughts/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-9]$/))
+! 25 points
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/europe/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-9]$|^2[0-4]$/))
+
+! Posts whose scores are lower than a certain amount (Mobile Reddit; experimental)
+reddit.com#?#.Post:-abp-has(.postHeader__subreddit-link:not([href="/r/mapswithoutnz"])):-abp-has(.VotingBox__score:-abp-contains(/●|^[0-9]$/))
+reddit.com#?#.Post:-abp-has(.postHeader__subreddit-link[href="/r/mapswithoutnz"]):-abp-has(.VotingBox__score:-abp-contains(/●|^[0-4]$/))
+
+! Posts that are too new to have been given a points score
+reddit.com#?#.Post:-abp-has(div[style^="color:"]:-abp-contains(•):not(:-abp-contains(/[a-z]/i)))
+reddit.com#?#.Post:-abp-has(span[data-click-id=metadata_comments]):not(:-abp-has(span[data-click-id=metadata_votes]))
+reddit.com#?#.Post:-abp-has(div[style*=-postfooter-]):not(:-abp-has(span[data-click-id=metadata_votes]))
+
+! Usernames that are 139% guaranteed to be trolls
+reddit.com#?#.Post,.Comment:-abp-has(a[href^="/user"]:-abp-contains(/p[e3]p[e3]/i):-abp-contains(/fr[o0]g/i))
+reddit.com#?#.Post,.Comment:-abp-has(a[href^="/user"]:-abp-contains(/kekistan/i))
+reddit.com#?#.Post,.Comment:-abp-has(a[href^="/user"]:-abp-contains(/RedditAdmins/i))
+reddit.com#?#.Post,.Comment:-abp-has(a[href^="/user"]:-abp-contains(/j[eou][owi][w]?[sz]?/i):-abp-contains(/white/i))
+reddit.com#?#.Post,.Comment:-abp-has(a[href^="/user"]:-abp-contains(/g[o0]y/i):-abp-contains(/wh[i1]te/i))
+
+! Removes the "n new posts for you" banner
+reddit.com#?#div:-abp-has(> svg[viewbox="0 0 34 16"])
+reddit.com#?#div[class^=SubredditVars-r-] > div:-abp-has(> svg)
+
+! Attempts to remove the "Recommended posts" feed on the bottom of almost all posts
+reddit.com#?#div[style^="max-width:"][style*="1600px"] > div > div:nth-of-type(2):-abp-has(> div[data-redditstyle])
+reddit.com#?#div[tabindex] > div > div:nth-of-type(2):-abp-has(> div[data-redditstyle])
+reddit.com#?#div[style^="max-width:"][style*="1600px"] > div > div:nth-of-type(2):-abp-has(div[data-redditstyle])
+reddit.com#?#div[tabindex] > div > div:nth-of-type(2):-abp-has(> div > div[data-redditstyle])
+
+! Removes three specific types of comments that offer nothing to a thread apart from vapid far-out-of-place greetings
+reddit.com#?#.Comment,.entry:-abp-contains(/Happy Cake[ ]?Day/i)
+reddit.com#?#.Comment,.entry:-abp-contains(/charge your phone/i)
+reddit.com#?#.Comment,.entry:-abp-has(a:-abp-contains(/^r/chargeyourphone$/))
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/first gold/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/first silver/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/first platinum/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/first award/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/Thank/i):-abp-contains(/gold/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/Thank/i):-abp-contains(/silver/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/Thank/i):-abp-contains(/platinum/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/Thank/i):-abp-contains(/award/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/Thank/i):-abp-contains(/stranger/i)
+
+! Attempts to remove the "Recommended posts" feed on the right of most posts
+reddit.com#?#div[data-redditstyle=false] + div:-abp-has(> div[data-redditstyle=true])
+
+! Let's give people a more free choice on whether to use New or Old Reddit, okay?
+||styles.redditmedia.com/t5_2qimj/styles/image_widget_hosy9x86gxv11.png$image
+reddit.com#?#div[data-redditstyle=false][style]:-abp-contains(/Old Reddit/i)
+
+! Aims to prevent Imgur embeds from cutting off half the preview
+imgur.com#?#img[id=image-element][src*=imgur]:style(margin-top: 0 !important)
+
+! If you're planning to run a background-related April Fools' joke, please don't let it run for ≥2 weeks afterwards
+||styles.redditmedia.com/*/styles/backgroundImage_n3apip7pe9q41.jpg^
+
+! ————— ↓ Removes content posted by the top 10 karma hoarders ↓ —————
+
+! Comments and Posts on New Reddit
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/GallowBoob"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/pepsi_next"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/TooShiftyForYou"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/mvea"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/SlimJones123"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/BunyipPouch"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/iBleeedorange"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/KevlarYarmulke"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/maxwellhill"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/bubblr"])
+
+! Comments on Old Reddit
+reddit.com#?#.entry:-abp-has(a[href*="/user/GallowBoob"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/pepsi_next"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/TooShiftyForYou"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/mvea"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/SlimJones123"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/BunyipPouch"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/iBleeedorange"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/KevlarYarmulke"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/maxwellhill"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/bubblr"])
+
+! Posts on Old Reddit
+reddit.com#?#.thing[data-author=GallowBoob]
+reddit.com#?#.thing[data-author=pepsi_next]
+reddit.com#?#.thing[data-author=TooShiftyForYou]
+reddit.com#?#.thing[data-author=mvea]
+reddit.com#?#.thing[data-author="SlimJones123"]
+reddit.com#?#.thing[data-author=BunyipPouch]
+reddit.com#?#.thing[data-author=iBleeedorange]
+reddit.com#?#.thing[data-author=KevlarYarmulke]
+reddit.com#?#.thing[data-author=maxwellhill]
+reddit.com#?#.thing[data-author=bubblr]
+!#endif
+
+! 2020-10-15 https://www.ndtv.com
+www.ndtv.com##.corSticky-head
+www.ndtv.com##.corSticky-wrap
+
+! 2020-10-15 https://www.dailythanthi.com
+www.dailythanthi.com###upcomingCompletedBlock > .mybot-container
+www.dailythanthi.com###upcomingCompletedBlock > .mybotclose
+
+
+
+###androidAppBanner
+###AndroidMobileAppBanner
+###app-badges
+###app-download
+###app-downloader
+###app-modal
+###app-promo
+###app-upsell-container
+###APP_DOWNLOAD
+###appbanner
+###appnag
+###appPromoBanner
+###appPromoter
+###custom_smartbanner
+###download-app-banner
+###epoznan-apk-banner-container
+###ibu_app_download_banner
+###mn-app-banner
+###mobilapp-download-module
+###mobile-download-panel
+###mobile-upsell-container
+###mobileAppNotify
+###mobileAppPanel
+###mobileAppsbadge
+###nativeapp_ad
+###promo_app_android
+###search-appPromote
+###smart-app-banner
+###smart-banner
+###smartbanner
+###smartbanner-area
+##.aa_app_widget
+##.abb.abt.apl.acy.touchable.area.last.first.touchableArea
+##.aclb.grouped._4fmw
+##.ad-app
+##.android_app_adv
+##.apk_right_two
+##.app-advertising
+##.app-banner
+##.app-btn
+##.app-cta
+##.app-download
+##.app-download-wrap
+##.app-nag
+##.app-nag-body
+##.app-store-banner
+##.app-teaser
+##.app__banner
+##.app_btn_container
+##.app_down_promotion
+##.app_download_ad
+##.app_download_blank_show
+##.app_download_cta
+##.appBanner
+##.AppBanner
+##.AppBannerContainer
+##.appdl_header
+##.appdownload
+##.appdownload-panel
+##.AppPopup
+##.appPromo
+##.appPromotionPanel
+##.appsflyer-banner-container
+##.b-smartappbanner
+##.banner-apps
+##.bar-appstore
+##.bMobileAppBanner
+##.bottom-download-app-view
+##.brn-web-to-app-banner
+##.content-toaster--mobile-app
+##.download-app
+##.download-app-banner
+##.download_app
+##.downloadapp
+##.downloadapp-modal
+##.downloadAppBar
+##.downloadPlay
+##.fixed_downapp
+##.footer_apk
+##.footerapps
+##.fra_js_app_banner
+##.get-app-block
+##.get-the-app
+##.getapp
+##.getTheApp
+##.go-to-app
+##.header-promo-apps
+##.install_app
+##.installAppPopup
+##.js-app_banner
+##.js-mobile-app
+##.js-mobile-banner
+##.js-smart-banner
+##.jsAppDown
+##.m-smartbanner
+##.menu-bar-pitch_open-in-app
+##.mob-app-redirect
+##.mob-download
+##.mobile-app-bar-view
+##.mobile-app-links
+##.mobile-applications-promo
+##.mobile_apps
+##.mobileApp
+##.mobileApp-wrap
+##.MobileAppHeader-downloadLink
+##.mobileAppWarning
+##.ms-side-widget--promo-app
+##.open-in-app
+##.open-in-app-promo
+##.open-in-application
+##.OpenInAppBanner
+##.OpenInAppButton
+##.popup-app
+##.shz-frame-apps-banner
+##.SiteHeader__AppBtn
+##.smart-app-banner
+##.smart-banner
+##.SmartBanner
+##.smartbanner
+##.smartBanner-container
+##.smartbanner__height
+##.smartbanner_new
+##.SmartBannerContainer
+##.tmblr-iframe--app-cta-button
+##.ViewInAppLink
+##.wds-is-community-apps
+##.widget-smart-banner
+##[class^=GetTheAppBanner]
+##[data-test-id="install-app"]
+##a[data-js-open-in-app]
+##amp-app-banner
+##div[class$="-download-app-container"]
+##div[class*="smart-banner" i]:not(.smart-banner-visible)
+##div[class*="smartbanner" i]
+##div[class^="download-app_box"]
+##div[class^="DownloadAppBanner__"]
+##div[class^=app-download-wrap]
+##div[class^=app_banner]
+##div[class^=app_download]
+##div[class^=AppUpsellHeader]
+##div[class^=mobile-upsell]
+##div[id$=smart-app-banner]
+##div[id*="smart-banner" i]
+##div[id*="smartbanner" i]
+##head[prefix~="medium-com:"] ~ body .js-openInAppButton
+##head[prefix~="medium-com:"] ~ body .js-postActionsBarContent > .js-readNextInteractions
+##section[appdownload]
+*/jquery.smartbanner/
+.smartbanner.js
+/js/smartbanner.
+/smart-app-banner.
+/smartbanner/appbanner.js
+/wp-content/plugins/ioimedia-app-banner/*
+9gag.com##.badge-sticky-button
+abril.com.br##.magazine-read
+aliexpress.com#?#.ms-downloadbar-wrap:style(display: none!important)
+aliexpress.com#?#.ms-header.w-download .header-main:style(margin-top: auto!important)
+aliexpress.com#?#.ms-header.w-download:style(height: 55px!important)
+anistar.me##.appfown
+apkpure.com##.safe-link > .dl-ref
+apkpure.com##div[id^=ad-aegon-]
+appleinsider.ru###ioimedia_app_banner
+ask.fm#?#body.appPromoBody:style(margin: 0 !important)
+auto.ru##.promo-max
+autoblog.com###toaster_autoblog-app
+b-m.facebook.com,b-m.facebookcorewwwi.onion,iphone.beta.facebook.com,iphone.facebook.com,iphone.facebookcorewwwi.onion,m.beta.facebook.com,m.facebook.com,m.facebookcorewwwi.onion,mobile.facebook.com,mobile.facebookcorewwwi.onion,mtouch.beta.facebook.com,mtouch.facebook.com,mtouch.facebookcorewwwi.onion,touch.beta.facebook.com,touch.beta.facebookcorewwwi.onion,touch.facebook.com,touch.facebookcorewwwi.onion,x.beta.facebook.com,x.facebook.com,x.facebookcorewwwi.onion##.cc.ib
+baidu.com###main > div[lgoinprompt="prompt"]
+besplatka.ua##.footer_bottom > div#applications
+bigbangnews.com##.bajar-app-fixed
+bilibili.com##.nav-link-item a[href$="app.bilibili.com"]
+booking.com##.appacq-banner-rating-wrap
+cloud.mail.ru###leftcol > div.download
+cofers.com#?#.widget:-abp-contains(Download our App!)
+delfi.*###delfi_header > div#dh_middle
+disk.yandex.*##.b-download
+dropbox.com###pyxl2881092706975949833
+ednist.info##.phone-container
+europaplus.ru##div[id^="AdwolfBanner240x400"]
+extramovies.org##.poster > center > .app
+extramovies.org##a[href*="://m.onelink.me/"]
+ferry.nyc##.header__bar
+finans.mynet.com###moblie_banner_300x250
+finans.mynet.com###moblie_banner_650x80
+freekaamaal.com###ftrbgdiv
+geniuskitchen.com##.gk-promo-card
+giveawayoftheday.com##.bottom_b
+google.*##mobile-promo
+ifeng.com##.openApp[onclick^="loadOpen.init(download"]
+ihlassondakika.com##.MobilContainer
+iltalehti.fi##[href="/sovellus"]
+imageban.ru##img[alt="Get it on Google Play"]
+instagram.com##._40dde
+instagram.com##._c05qa
+instagram.com##a[href="/accounts/login/?next=%2F&source=mobile_nav"] + button
+instagram.com##a[href^="https://itunes.apple.com/app/instagram/id389801252?"][role="alert"]
+instagram.com##body > span > section > nav > div > div > section.xZ2Xk
+instagram.com#?#nav > div > div > section > div:-abp-has(div > div > button > div)
+intellicast.com###promoAd
+intellicast.com###stormLink
+ipaddressguide.com##img[alt="iptools android app"]
+ipaddressguide.com##img[alt="iptools apple app"]
+ipleer.fm##.rt_play_market
+ixigua.com##.nav-list a[href$="/app/"]
+jkanime.site##body > div[style="padding:5px; background-color:yellow; text-align:center; border:2px solid yellow;"]
+kaktam.ru##.wrapper--banner
+kicker.de#?##ovContentScroller:style(padding-top: 0 !important)
+kicker.de#?##ovHeader:style(top: 0 !important)
+klavyer.com#?#a[href="https://www.klavyer.com/android-uygulamamiz"]:style(display: none!important)
+klavyer.com#?#body .container .sidebar_last:style(margin-top: -5px!important)
+lefigaro.fr#?#html.smartBanner header#fig-header:style(height: 50px!important)
+lezzet.com.tr##.footer-mobil-uygulama-box
+lifehacker.ru###sidebar-footer-3 > aside > div.textwidget > a > img
+lifehacker.ru##.soc-div
+m.17track.net##.yq-panel-download
+m.9gag.com##.btn.full-bleed
+m.9gag.com##.panel.download
+m.aboutyou.de#?#.app-teaser + .fake-nav-bar + * + .container:style(padding-top: 0 !important)
+m.aboutyou.de#?#.app-teaser + .fake-nav-bar + * .bar-header:style(top: 0 !important)
+m.apkpure.com##.aegon-warp
+m.avito.ru##.promo-app-inner
+m.bombaytimes.com,m.tv.naver.com##.app_banner
+m.brigitte.de###bottom-bar
+m.btime.com##.sx-download-bar
+m.douglas.de#?##page-mobile-header-placeholder:style(min-height: 44px!important)
+m.evensi.de##.down-app
+m.geektimes.ru##.footer__apps
+m.huffpost.com###aol-banner
+m.imgur.com##.FloatingOIA
+m.imgur.com##.Post-contentContainer > div.Post-metaContainer
+m.imgur.com##.PostContainer-postGetApp
+m.ndtv.com###header_ap_id
+m.ntv.ru###androidbanner
+m.pikabu.ru##.fb-widget-below-comments-mw.promo
+m.qidian.com##.read_app_download
+m.qyer.com#?#.side-dock:-abp-has(img[alt^="穷游App"])
+m.soundcloud.com##.footer_appButtonContainer
+m.soundcloud.com##upsellBanner
+m.tapas.io###bottom-app-banner
+m.tianxun.com###app_banner
+m.topsante.com#?#body.smartbanner:style(margin-top: auto!important)
+m.twitch.tv##.tw-absolute.tw-bottom-0
+m.ulmart.ru#?#.smartbanner_show .snap-content, .smartbanner_show .snap-drawers:style(top: 0 !important)
+m.vlive.tv#?#.pop_banner + #wrap .vlive_top:style(top: 0 !important)
+m.vlive.tv#?#.pop_banner + #wrap:style(padding-top: 0 !important)
+m.vlive.tv#?#.pop_banner:style(display: none!important)
+m.vlive.tv#?#body.layer_open:style(position: relative!important)
+m.wishafriend.com##[href*="internetdesignzone.messages"]
+m.yelp.*##.u-space-t4 + div
+m.yelp.*##a[href*="app.adjust.com"]
+mail.yandex.*##.ns-view-inline-wizard-container
+mail.yandex.*##.popup-overlay
+mangareader.net###googleModal > a[href$="://www.animemobile.com/MangaApp/"]
+mbasic.facebook.com,d.facebook.com,free.facebook.com,0.facebook.com,mbasic.facebookcorewwwi.onion,d.facebookcorewwwi.onion,free.facebookcorewwwi.onion,0.facebookcorewwwi.onion,m.facebook.com,b-m.facebook.com,mobile.facebook.com,m.facebookcorewwwi.onion,b-m.facebookcorewwwi.onion,mobile.facebookcorewwwi.onion###pages_call_to_action
+mediamarkt.de##.mrh-app-banner
+mediamarkt.de#?#.app-banner-active #header-wrapper:style(height: 50px !important)
+mediamarkt.de#?#.app-banner-active header.mrh-header:style(top: 0 !important)
+miui.com##.app_download
+momondo.*###mobile-splash-popup:style(display: none!important)
+momondo.*###mui-header:style(display: block!important)
+momondo.*##.flights-section-container:style(display: block!important)
+money.yandex.*##.promo-header
+moviefone.com##.app-intercept
+music.yandex.*##.app-sms
+music.yandex.*##.button-store_all
+music.yandex.*##.event__notify_bg5
+my.klarna.com##.reveal-overlay
+mywot.com##.app-stripe
+naturalatlas.com##.mapbar-btn.btn-has-icon
+nfb.ca##.bandeOuterHeightLogo
+nostalgie.be,nrj.be#?##android_box:style(display: none!important)
+nostalgie.be,nrj.be#?#.navbar-fixed-top:style(top: 0 !important)
+nytimes.com,nytimes3xbfgragh.onion##.css-990mwl
+obzor.press###meerkat-wrap
+olx.ua###appsBottomBar
+oncoforum.ru##.footer-app
+onedio.com##.o-ftr > .main > .f-border > .everywhere
+onlineradiobox.com##.page__column-right > .playmarket
+opodo.de###app-layer
+opodo.de###new_app_layer
+pagesix.com##.pagesix-app-flyout__wrapper
+pcgames.de##div.header_footer.ui-footer.ui-bar-inherit.ui-footer-fixed.slideup[data-role="footer"]
+pixiv.net##dialog.app-dialog-for-first-user
+presseportal.de##.mobile-container.app-notification
+pvplive.net##a[href="/m/getmobile"]
+radio.yandex.*##.nav__items > div.nav__banner
+radugaskidok.ru##.store-bg
+radugaskidok.ru#?#.rs-header-line-new:style(top: 0 !important)
+rambler.ru##.wrap > section.promo.j-promo
+regnum.ru##.footer-apps
+roblox.com###app-bumper-main
+romania-insider.com##.ri-app
+rozetka.com.ua###banner-application
+rt.com###offers
+rt.com##.app-panel
+rt.com#?#.header.header_top-interval_js:style(margin-top: 0 !important)
+rt.com#?#.layout__header_top-interval_js:style(height: 50px!important)
+schlaukopf.de#?#html:style(margin-top: 0 !important)
+schnaeppchenfuchs.com##.mobile-promo-apps__vertical-spacer
+shiftdelete.net##.e_magazine_mobile
+shiftdelete.net##img[title="Torrent Yasal mı? - ShiftDelete.Net"]
+shpock.com###auction_overlay_bg
+shpock.com###body-wrapper > .small-banner
+skype.com###appBanner
+slader.com##a[href^="https://itunes.apple.com/"].slader-stickers
+slatedroid.com###banner_div_empty
+slatedroid.com###tt_mobile_banner
+soundcloud.com##article.mobileApps
+spor.mynet.com###fSocialMediaWrap > #fApp
+sport-express.ru##.addmenu li.advertwww
+sport.de##a.hs-app
+sports.ru##.sports-apps-promo
+sporx.com##a[href$="://bit.ly/2iqT2Bm"]
+sporx.com,superfb.com,webaslan.com##a[href$=".com/mobil/"]
+sputnik.ru##.b-cover__box > div.b-panel.js-panel[style="height: 60px;"]
+supreme2.ru###s2newsad
+surfingbird.ru##.b-mobile-redirect
+tabs.ultimate-guitar.com##.js-install.ugm-btn__info
+tabs.ultimate-guitar.com##.spl-content-side-overflow:after
+tabs.ultimate-guitar.com##.spl-content-side-overflow:before
+tabs.ultimate-guitar.com#?#.spl-content-side-overflow:style(max-width: none !important)
+tabs.ultimate-guitar.com#?#.ugm-chord-panel--scroller:style(white-space: normal !important)
+tabs.ultimate-guitar.com#?#.undefined:-abp-has(button[icon=android])
+tellows.de###hint_box
+touch.qunar.com#?#.col4:-abp-has(.guide-box[href*="/download?immediate="])
+tripadvisor.*###partialScreenInterrupter
+tripadvisor.*#?##PAGE_CONTAINER.smartbanner_shown_on_top:style(top: 0 !important)
+tripadvisor.*#?#.ppr_priv_mobile_full_page_interstitial
+trondelagkraft.no#?#.article__ingress > p:-abp-contains(Med appen vår )
+trondelagkraft.no#?#.editorButton.button__action:-abp-contains(Last ned vår fordelsapp)
+tumblr.com##.mobile-banner-inner
+twitter.com##.toast.client_prompt
+twitter.com##header[role=banner] > ._3oxnid3o._3f2NsD-H
+twitter.com#?#.r-1pjcn9w:-abp-has(.r-1rnoaur)
+ultimate-guitar.com##.ug-floated-splash.js-splash-container
+userstyles.org##.android_button_banner
+userstyles.org##.overlay_background
+userstyles.org#?#div.us-stylecard--short:-abp-has(img[src="/ui/images/280x294.png"])
+valyuta.com###bannerParent
+video.az##.sidebar-right > .text-center > a[href*="/app"] > img
+viu.com##.v-foot-wrap > div#app
+vsco.co#?#div[class^=css-]:-abp-has(.mb0)
+wap.ithome.com###a_ad
+wattpad.com###announcements-container
+wattpad.com###bottom-banner-container
+waze.com##.wz-downloadbar
+webaslan.com##center > a[href*="://bit.ly/"] > img
+webtekno.com##.android-dropdown.dropdown-container
+wish.com##.ui-overlay-a.in
+wish.com##.ui-overlay-a.in + .ui-popup-container
+yandex.*##.app-layout__banner
+yandex.*##.app-layout__splash
+yandex.*##.footer__inner > a.scroll-spy_js_inited
+yandex.*##.map-view__control-layout > div.stores-badges-view
+yandex.*##.promo-appsearch_js_inited
+yandex.*##.serp-list > div.serp-item.t-route
+yandex.*##a[href*="/clck/redir/dtype=clck/lid=geotouch.iphone.banner/"] > div[class]
+youku.com##div[id$=_ykbanner]
+zalando.*#?#body.z-bit-smartbanner_offset:style(margin-top: 0 !important)
+zargan.com###app-menu
+zaycev.fm##.soft-promo
+zedge.net##.column.grid_12.leader
+zedge.net##.column.trailer.leader
+zona.mobi###zona-android
+||2app.lk^$third-party
+||anistar.ru/templates/*/images/android-app-on-google-play.png
+||assets.ilcdn.fi/IL_Parassaa_612px.gif$image
+||br.app.link^$third-party
+||dogruhaber.com.tr/image/foto/*/mobil-uygulamamamiz_*.gif
+||klavyer.com/android/klavyer-android-uygulamamiz.jpg
+||malatyahaber.com/wp-content/uploads/2016/05/SA.gif
+||my.klarna.com/assets/images/backgrounds/app-blur.png$image
+||netdna-ssl.com/wp-content/uploads/2018/02/romaniainsider-app.png$image
+||ntv.com.tr/Content/img/promote.jpg
+||superfb.com/_img/banner/sfb*.png
+||superfb.com/_img/mobil_imaj.png
+||turkiyecocuk.com.tr/banner/
+||universitystar.com/wp-content/uploads/2019/02/NEW_web_rectangle_1-1.jpg$image
+||unleashedprepaids.com/mobiquo/smartbanner/
+||vizefinalsorupaylasimi.com/uploads/googleplay.jpg
+||weather.gc.ca/banner/images/App_*.gif$image
+!#if env_mobile
+twitter.com###layers > div:nth-of-type(2):last-of-type
+!#endif
+! Pinterest
+##div[data-test-id$=InterstitialUpsell]
+
+! Below are entries that I borrowed from "I Don't Want Your App", which is maintained by https://github.com/lassekongo83 at https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/master/i-dont-want-your-app.txt, and which is licenced as GPLv3
+! Generic
+##a[href*=".app.link/"]
+##.smart-banner-download__wrapper.smart-banner__wrapper
+imgur.com##.FloatingOIA-container
+imgur.com##.AppBanner-text
+imgur.com##.PopOverBannerSmall
+imgur.com##.PopOverBannerFull
+aftonbladet.se##._3aP1_
+soundcloud.com##.footer__appButtonContainer
+soundcloud.com##.upsellBanner__app
+accuweather.com###app-store-links
+.SmartMessage.$script,domain=weather.com
+mobile.twitter.com#?#+js(aeld, scroll, (e))
+quora.com#?#html,body:style(overflow: auto !important; user-select: text !important;)
+quora.com#?#.PageWrapper:style(filter: none !important;)
+quora.com##.modal_bg
+yelp.*##.menu-bar-pitch_open-in-app
+linkedin.com#?#html,body:style(overflow: auto !important;)
+
+! Entries for PR-Chinese websites
+! Special thanks to https://github.com/HankAviator for writing the below entries
+12306.cn##.fixed-right-menu > li.menu-item:nth-of-type(3)
+1hai.cn##.mobile-bannerbox
+1hai.cn##.mobile-bannericon
+58.com##.app.rightbtn
+58.com##.wx-xcx-qrcode
+airchina.com.cn##[href="http://www.airchina.com.cn/cn/client_download.shtml"]
+alipay.com##.container__1JFhD
+amap.com###amapAppDownload
+amap.com###amap-result-banner
+amap.com###to_lushu
+amap.com##.dir_qr
+auth.alipay.com###onlineService
+bababus.com###suspend
+bababus.com##.guide_app
+bestwehotel.com##.header-phone-container
+bilibili.com##.mobile-link-l
+bthhotels.com##.app_head_box
+bthhotels.com##.footerR_l
+bus.ctrip.com##.main_img
+bus.ctrip.com##.side_img
+coolapk.com##.apk_topba_code
+creditcard.ecitic.com##.dkkj_app
+creditcard.ecitic.com##.setting-adv
+ctrip.com##.pop_smallp
+ctrip.com##.set-phone.set-list > .nav-myctrip.person-text
+ctrip.com###u-ctripQR
+dianping.com##.J-bonus
+dianping.com##.big-pop
+dianping.com##.bottomLayer
+dianping.com##.fullScreenFlash
+dianping.com##.qrcode-aside
+dianping.com##.shop-owner.mod
+dianping.com##.show.qrcode-fixed
+ditu.amap.com###mobileenterance_no_bg
+flights.ch.com##.m-side
+flights.ctrip.com###appd_wrap_default
+flights.ctrip.com###fl_open_wrap
+hotels.ctrip.com###J_MiniProgram
+hotels.ctrip.com###J_MiniProogram
+hotels.ctrip.com###J_qrcodes
+huazhu.com##.downapp
+huazhu.com##.download-app-open
+huazhu.com##.imgbox-content.introl-item
+huazhu.com##.qrcode-img.Ltac.qrcodeapp
+item.taobao.com##.tb-qrcode-tool
+jd.com###J_mobile
+jdpay.com###promotionModal
+jdpay.com##.ui-modal-mask
+juneyaoair.com##.g-sliderinner
+juneyaoair.com##.mobileIcon
+lianjia.com,zu.ke.com##.fix-bottom-wrap
+lianjia.com,zu.ke.com,csair.com##.qr-code
+liepin.cn##.guider
+loongair.cn##.appGuide
+loongair.cn##.display-row-box.right > div.box:nth-of-type(3)
+loongair.cn##.display-row-box.right > div.box:nth-of-type(4)
+mafengwo.cn###banner-con-gloable
+mi.com##.item-image.item
+my.ctrip.com###bottomBanner
+qunar.com##.mod-home-appfoot
+qunar.com##.phone_icon
+qunar.com##.q_header_app_logo
+qunar.com##.qrcode.btn-item
+qyer.com##.advertising
+qyer.com##div.section-gray.section:nth-of-type(3)
+secure.booking.com##.china-loyalty-dp-app-download-banner
+secure.booking.com##.gta-lightbox-trigger.gta-mb-multiple
+secure.booking.com##.modal-mask
+secure.booking.com##.modal-wrapper
+secure.booking.com##.myres-gtw-open
+smzdm.com###index-elevator > li:nth-of-type(2)
+smzdm.com###index-elevator > li:nth-of-type(3)
+smzdm.com##.download
+smzdm.com##.qrcode
+smzdm.com##.share_app_icon
+smzdm.com##.share_invitation
+taobao.com###J_Col_Main > div:nth-of-type(6)
+taobao.com###J_SiteFooter
+taobao.com##.J_TWeitaoHover.follow-mobile
+taobao.com##.tbh-qr-wrapper
+tianxun.com##.col_app
+tianxun.com##.pop_app
+tianxun.com##.pt10.side_box.ac
+tmall.com###J_Qrcode
+tmall.com##.tm-qrcode-icon
+tmall.com##.sn-mobile
+train.qunar.com##.qn-banner
+trains.ctrip.com##.erweima
+trains.ctrip.com##.gzh-box
+wq.jd.com###id-pcprompt-mask
+zhihu.com##.DownloadGuide-block--active.DownloadGuide-block.DownloadGuide.Card
+zuche.com###indexmovePopularize
+zuche.com##.zc-ban-new-app
+
+
+! 2020-10-23 https://www.fastcompany.com
+www.fastcompany.com##.jw-reset.jw-video
+www.fastcompany.com##.siderail-video-module
+
+! 2020-10-23 https://www.bbc.com
+www.bbc.com###sign_in-bg
+www.bbc.com###sign_in
+www.bbc.com##.exhqgzu5.css-v17lp6-DialogBackdrop
+
+
+||sourcepoint.theguardian.com/index.html$subdocument
+www.theguardian.com###sp_message_container_343252
+
+
+
+
+
+! ——— BBC Reel ———
+||bbci.co.uk/plugins/onwardJourneyHTML/*/js/onwardJourney.js^
+
+[Adblock Plus 3.4]
+! Title: 🎛 Reddit Trash Removal Service
+! Version: 24December2020v1-Beta
+! Expires: 3 days
+! Description: Reddit can have some good places and posts, but unfortunately 95% of it is also a large pile of echo chambers whose only equivalent is 8kun. So if you only browse Reddit for its humouristical and artistical subreddits, this list will massively help you focus on those things.
+! Some categories in this list only supports New Reddit, because let's be honest: It's so much better to be able to actually see the posts' images from the timelines, instead of having to open every single thread to see if their images are noteworthy or not.
+! For more information, details, helpful tools, and other lists that I've made, visit https://github.com/DandelionSprout/adfilt/blob/master/Wiki/General-info.md#english
+
+!#if !env_mobile
+! Removes sitewide feeds from the dropdown menu, on the assumption that they contain posts from bad subreddits
+! Dropdown menu
+reddit.com###focus-All
+reddit.com###focus-OC
+reddit.com###focus-Home
+! Top navigation bar
+reddit.com###header-quicklinks-oc
+reddit.com###header-quicklinks-popular
+reddit.com###header-quicklinks-all
+reddit.com##div[role=navigation]
+! The user feed, if I don't remember completely wrong
+reddit.com#?#ul.hover.sr-bar.flat-list > li:-abp-has(a[href*="/r/all/"])
+reddit.com#?#ul.hover.sr-bar.flat-list > li:-abp-has(a[href*="/r/popular/"])
+reddit.com#?#ul.hover.sr-bar.flat-list > li:-abp-has(a[href*="/r/random/"])
+
+! Removes hard-to-close cookie banners on Imgur embeds
+||quantcast.mgr.consensu.org$domain=reddit.com|imgur.com
+
+! Subreddits that have extremely messed-up criteria for what is considered to be banworthy
+! Known to ban everyone who are not ultraconservative:
+||reddit.com/r/conservative$document
+||reddit.com/r/conspiracy^$document
+||reddit.com/r/Republican^$document
+||reddit.com/r/JusticeServed^$document
+||reddit.com/r/GamersRiseUp^$document
+! Known to ban all furries:
+||reddit.com/r/antifurry_irl^$document
+||reddit.com/r/yiffinhell^$document
+! Known to ban all men:
+||reddit.com/r/FemaleDatingStrategy^$document
+||reddit.com/r/PinkpillFeminism^$document
+! Known to ban all Europeans:
+||reddit.com/r/dankmemes^$document
+! Known to ban most of their white users:
+||reddit.com/r/blackpeopletwitter^$document
+||reddit.com/r/CurlyHair^$document
+
+! Subreddits known to condone mass-murders or the notion of such to varying degrees
+! Known to condone mass murdering of Jews:
+||reddit.com/r/POLITIC^$document
+||reddit.com/r/multiculturalcancer^$document
+||reddit.com/r/IsraelExposed^$document
+||reddit.com/r/debatealtright^$document
+||reddit.com/r/jewishcontributions^$document
+||reddit.com/r/TeamHeckleBerry^$document
+||reddit.com/r/ClericalFascism^$document
+||reddit.com/r/NaziFreeMDE^$document
+! Known to condone mass murdering of non-Christians:
+||reddit.com/r/the3rdposition^$document
+||reddit.com/r/AltRightChristian^$document
+||reddit.com/r/kotakuinaction2^$document
+||reddit.com/r/WhiteBiblicalNation^$document
+! Known to condone mass murdering of women:
+||reddit.com/r/MGTOW^$document
+||reddit.com/r/Celouts^$document
+||reddit.com/r/shortcels^$document
+! Known to condone mass murdering of Afro-Americans:
+||reddit.com/r/SubforWhitePeopleOnly^$document
+||reddit.com/r/TruePoliticalHumor^$document
+||reddit.com/r/HardUnpopularOpinon^$document
+||reddit.com/r/13do50^$document
+! Known to condone mass murdering of one or more LGBTQ categories:
+||reddit.com/r/AntiLGBTQplus^$document
+||reddit.com/r/islamicsub^$document
+||reddit.com/r/dogeright^$document
+||reddit.com/r/KotakuInAction^
+! Known to condone mass murdering of anti-PR-China entities; including student protesters and Uyghurs:
+||reddit.com/r/sino^$document
+! Known to condone mass murdering of non-ultraconservatives:
+||reddit.com/r/DefinitelyNOTboogaloo^$document
+! Known to promote fake screenshots in order to incite violence and hanging of users of competing subreddits:
+||reddit.com/r/WatchRedditDie^$document
+! Known to condone mass murdering of Chinese people:
+||reddit.com/r/ChineseTourists^$document
+
+! Posts whose scores are lower than a certain amount (New Reddit)
+! The default for all subreddits is 10 points, although this can be adjusted for a handful of subreddits whose quality levels are deemed to sharply increase with a higher or lower limit.
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp]:not([href*="/mapswithoutnz/"])):-abp-has(button + div:-abp-contains(/^[0-9]$/))
+reddit.com#?#.Post:-abp-has(span + a[data-click-id=timestamp]:not([href*="/MapsWithoutNZ/" i])):-abp-has(span[style^="color:"]:nth-of-type(1):-abp-contains(/^[0-9]\xA0/))
+! 5 points
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/mapswithoutnz/"]):-abp-has(button + div:-abp-contains(/^[0-4]$/))
+reddit.com#?#.Post:-abp-has(span + a[data-click-id=timestamp][href*="/MapsWithoutNZ/" i]):-abp-has(span[style^="color:"]:nth-of-type(1):-abp-contains(/^[0-4]\xA0/))
+! 15 points
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/dontdeadopeninside/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-4]$/))
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/assholedesign/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-4]$/))
+! 20 points
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/ihadastroke/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-9]$/))
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/BoneAppleTea/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-9]$/))
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/BestOfReports/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-9]$/))
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/showerthoughts/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-9]$/))
+! 25 points
+reddit.com#?#.Post:-abp-has(a[data-click-id=timestamp][href*="/europe/"]):-abp-has(button + div:-abp-contains(/^[0-9]$|^1[0-9]$|^2[0-4]$/))
+
+! Posts whose scores are lower than a certain amount (Mobile Reddit; experimental)
+reddit.com#?#.Post:-abp-has(.postHeader__subreddit-link:not([href="/r/mapswithoutnz"])):-abp-has(.VotingBox__score:-abp-contains(/●|^[0-9]$/))
+reddit.com#?#.Post:-abp-has(.postHeader__subreddit-link[href="/r/mapswithoutnz"]):-abp-has(.VotingBox__score:-abp-contains(/●|^[0-4]$/))
+
+! Posts that are too new to have been given a points score
+reddit.com#?#.Post:-abp-has(div[style^="color:"]:-abp-contains(•):not(:-abp-contains(/[a-z]/i)))
+reddit.com#?#.Post:-abp-has(span[data-click-id=metadata_comments]):not(:-abp-has(span[data-click-id=metadata_votes]))
+reddit.com#?#.Post:-abp-has(div[style*=-postfooter-]):not(:-abp-has(span[data-click-id=metadata_votes]))
+
+! Usernames that are 139% guaranteed to be trolls
+reddit.com#?#.Post,.Comment:-abp-has(a[href^="/user"]:-abp-contains(/p[e3]p[e3]/i):-abp-contains(/fr[o0]g/i))
+reddit.com#?#.Post,.Comment:-abp-has(a[href^="/user"]:-abp-contains(/kekistan/i))
+reddit.com#?#.Post,.Comment:-abp-has(a[href^="/user"]:-abp-contains(/RedditAdmins/i))
+reddit.com#?#.Post,.Comment:-abp-has(a[href^="/user"]:-abp-contains(/j[eou][owi]w?[sz]?/i):-abp-contains(/white/i))
+reddit.com#?#.Post,.Comment:-abp-has(a[href^="/user"]:-abp-contains(/g[o0]y/i):-abp-contains(/wh[i1]te/i))
+
+! Removes the "n new posts for you" banner
+reddit.com#?#div:-abp-has(> svg[viewbox="0 0 34 16"])
+reddit.com#?#div[class^=SubredditVars-r-] > div:-abp-has(> svg)
+
+! Attempts to remove the "Recommended posts" feed on the bottom of almost all posts
+reddit.com#?#div[style^="max-width:"][style*="1600px"] > div > div:nth-of-type(2):-abp-has(> div[data-redditstyle])
+reddit.com#?#div[tabindex] > div > div:nth-of-type(2):-abp-has(> div[data-redditstyle])
+reddit.com#?#div[style^="max-width:"][style*="1600px"] > div > div:nth-of-type(2):-abp-has(div[data-redditstyle])
+reddit.com#?#div[tabindex] > div > div:nth-of-type(2):-abp-has(> div > div[data-redditstyle])
+
+! Removes three specific types of comments that offer nothing to a thread apart from vapid far-out-of-place greetings
+reddit.com#?#.Comment,.entry:-abp-contains(/Happy Cake ?Day/i)
+reddit.com#?#.Comment,.entry:-abp-contains(/charge your phone/i)
+reddit.com#?#.Comment,.entry:-abp-has(a:-abp-contains(/^r/chargeyourphone$/))
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/first gold/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/first silver/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/first platinum/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/first award/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/Thank/i):-abp-contains(/gold/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/Thank/i):-abp-contains(/silver/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/Thank/i):-abp-contains(/platinum/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/Thank/i):-abp-contains(/award/i)
+reddit.com#?#p:-abp-contains(/^Edit/i):-abp-contains(/Thank/i):-abp-contains(/stranger/i)
+
+! Attempts to remove the "Recommended posts" feed on the right of most posts
+reddit.com#?#div[data-redditstyle=false] + div:-abp-has(> div[data-redditstyle=true])
+
+! Let's give people a more free choice on whether to use New or Old Reddit, okay?
+||styles.redditmedia.com/t5_2qimj/styles/image_widget_hosy9x86gxv11.png$image
+reddit.com#?#div[data-redditstyle=false][style]:-abp-contains(/Old Reddit/i)
+
+! Aims to prevent Imgur embeds from cutting off half the preview
+imgur.com#?#img[id=image-element][src*=imgur]:style(margin-top: 0 !important)
+
+! If you're planning to run a background-related April Fools' joke, please don't let it run for ≥2 weeks afterwards
+||styles.redditmedia.com/*/styles/backgroundImage_n3apip7pe9q41.jpg^
+
+! ————— ↓ Removes content posted by the top 10 karma hoarders ↓ —————
+
+! Comments and Posts on New Reddit
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/GallowBoob"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/pepsi_next"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/TooShiftyForYou"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/mvea"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/SlimJones123"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/BunyipPouch"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/iBleeedorange"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/KevlarYarmulke"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/maxwellhill"])
+reddit.com#?#.Comment,.Post:-abp-has(a[href="/user/bubblr"])
+
+! Comments on Old Reddit
+reddit.com#?#.entry:-abp-has(a[href*="/user/GallowBoob"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/pepsi_next"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/TooShiftyForYou"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/mvea"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/SlimJones123"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/BunyipPouch"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/iBleeedorange"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/KevlarYarmulke"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/maxwellhill"])
+reddit.com#?#.entry:-abp-has(a[href*="/user/bubblr"])
+
+! Posts on Old Reddit
+reddit.com#?#.thing[data-author=GallowBoob]
+reddit.com#?#.thing[data-author=pepsi_next]
+reddit.com#?#.thing[data-author=TooShiftyForYou]
+reddit.com#?#.thing[data-author=mvea]
+reddit.com#?#.thing[data-author="SlimJones123"]
+reddit.com#?#.thing[data-author=BunyipPouch]
+reddit.com#?#.thing[data-author=iBleeedorange]
+reddit.com#?#.thing[data-author=KevlarYarmulke]
+reddit.com#?#.thing[data-author=maxwellhill]
+reddit.com#?#.thing[data-author=bubblr]
+!#endif
+
+
+
+! 2021-11-25 https://www.youtube.com
+www.youtube.com###chatframe
+www.youtube.com##.ytd-live-chat-frame.style-scope > .ytd-toggle-button-renderer.style-scope.yt-simple-endpoint > .ytd-toggle-button-renderer.style-scope
+
+! Removes video suggestions
+##.ytp-endscreen-content
+m.youtube.com##ytm-watch ytm-compact-video-renderer
+m.youtube.com##[section-identifier=related-items]
+/annotations_module.js$script,domain=youtube.com|youtu.be|youtube-nocookie.com
+/endscreen.js$script,domain=youtube.com|youtu.be|youtube-nocookie.com
+inv.riverside.rocks,invidio.xamh.de,invidious-jp.kavin.rocks,invidious-us.kavin.rocks,invidious.exonip.de,invidious.hub.ne.kr,invidious.kavin.rocks,invidious.namazso.eu,invidious.snopyta.org,vid.mint.lgbt,vid.puffyan.us,y.com.cm,yewtu.be,youtube.076.ne.jp,yt.artemislena.eu,yt.didw.to,ytb.trom.tf,ytprivate.com,c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion,w6ijuptxiku4xpnnaetxvnkc5vqcdu7mgns2u77qefoixi63vbvnpnqd.onion,kbjggqkzv65ivcqj6bumvp337z6264huv5kpkwuv6gu5yjiskvan7fad.onion,grwp24hodrefzvjjuccrkw3mjq4tzhaaq32amf33dzpmuxe7ilepcmad.onion,hpniueoejy4opn7bc4ftgazyqjoeqwlvh2uiku2xqku6zpoa4bf5ruid.onion,invidc4i7i5uci6cledxsao6w7ng5etpflagdzoxj3yhipztwzvqjryd.onion,osbivz6guyeahrwp2lnwyjk2xos342h4ocsxyqrlaopqjuhwn2djiiyd.onion,p4ozd76i5zmqepf6xavtehswcve2taptxbwpswkq5osfvncwylavllid.onion,k7mnd6gyelynroxoncodxjz44fd5ch2ewfjl2a6ozmg3jy6fwyxq3cyd.onion#?#.pure-u-lg-1-5 > .h-box:-abp-has(.pure-u-14-24)
+hooktube.com#?#.col-lg-4:-abp-has(#video-list)
+! Seems to remove "Recommended for you" suggestions
+||youtube.com/related_ajax^
+
+! Removes the like/dislike counters
+youtube.com##ytd-toggle-button-renderer #text
+youtube.com###sentiment
+m.youtube.com##.slim-video-metadata-actions > [data-button-id]:first-of-type .button-renderer-text
+m.youtube.com##.slim-video-metadata-actions > [data-button-id]:nth-of-type(2) .button-renderer-text
+inv.riverside.rocks,invidio.xamh.de,invidious-jp.kavin.rocks,invidious-us.kavin.rocks,invidious.exonip.de,invidious.hub.ne.kr,invidious.kavin.rocks,invidious.namazso.eu,invidious.snopyta.org,vid.mint.lgbt,vid.puffyan.us,y.com.cm,yewtu.be,youtube.076.ne.jp,yt.artemislena.eu,yt.didw.to,ytb.trom.tf,ytprivate.com,c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion,w6ijuptxiku4xpnnaetxvnkc5vqcdu7mgns2u77qefoixi63vbvnpnqd.onion,kbjggqkzv65ivcqj6bumvp337z6264huv5kpkwuv6gu5yjiskvan7fad.onion,grwp24hodrefzvjjuccrkw3mjq4tzhaaq32amf33dzpmuxe7ilepcmad.onion,hpniueoejy4opn7bc4ftgazyqjoeqwlvh2uiku2xqku6zpoa4bf5ruid.onion,invidc4i7i5uci6cledxsao6w7ng5etpflagdzoxj3yhipztwzvqjryd.onion,osbivz6guyeahrwp2lnwyjk2xos342h4ocsxyqrlaopqjuhwn2djiiyd.onion,p4ozd76i5zmqepf6xavtehswcve2taptxbwpswkq5osfvncwylavllid.onion,k7mnd6gyelynroxoncodxjz44fd5ch2ewfjl2a6ozmg3jy6fwyxq3cyd.onion###likes, #dislikes
+
+twitch.tv#?#.ffz__tooltip .stats:-abp-contains(👍):-abp-contains(👎)
+
+! Aims to prevent video suggestions from showing up when pausing embedded videos
+##.ytp-scroll-min
+##.ytp-pause-overlay
+youtube.com##.ytp-scroll-min
+youtube.com##.ytp-pause-overlay
+
+! Removes the frontpage link from the upper left YouTube logo (Not supported by ABP or AdBlock)
+youtube.com#?##logo:style(pointer-events: none !important; cursor: default !important)
+
+! Removes video epilogue suggestion overlays
+youtube.com##.ytp-ce-element-show
+
