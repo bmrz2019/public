@@ -1,3 +1,7 @@
+# dmesg
+
+`sudo sysctl -w kernel.dmesg_restrict=0`
+
 # Hibernate
 
 Verify
