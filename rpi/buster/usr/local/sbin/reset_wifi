@@ -1,0 +1,32 @@
+#!/bin/bash
+
+lock="/tmp/cron_reset.lock"
+if [ -f $lock ] ; then
+ echo "Lockfile exists, aborting."
+ exit 0
+fi
+touch $lock
+
+reset_here () {
+if [ $? -eq 0 ]
+then
+	echo "Ping success" > /dev/null 2>&1
+else
+	#echo "No network. Exiting..."
+	date +"%a-%b-%d-%T" > /home/pi/wifi_interrupted
+	/sbin/wpa_cli -i wlan0 reconfigure  > /dev/null 2>&1
+   sleep 1
+fi
+}
+
+ping -c 3 heise.de  > /dev/null 2>&1
+reset_here
+ping -c 3 192.168.1.10 > /dev/null 2>&1
+reset_here
+ping -c 3 192.168.1.7 > /dev/null 2>&1
+reset_here
+ping -c 3 192.168.1.14 > /dev/null 2>&1
+reset_here
+
+rm -f $lock
+exit 0
