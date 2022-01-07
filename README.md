@@ -1,3 +1,21 @@
+# Cloudready
+
+`sudo dd if=cloudready.bin of=/dev/sdX bs=4M `
+
+- If you add this to Ventoy rename the image to `.img`
+
+# Disable auto update of secureboot keys
+
+- check for secureboot
+
+`mokutil --sb-state`
+
+```
+systemctl stop secureboot-db.service
+systemctl disable secureboot-db.service
+journalctl -o short-precise -b -u secureboot-db.service
+```
+
 # test for hibernate
 `user@laptop: ~ $ busctl call org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager CanHibernate`
 
