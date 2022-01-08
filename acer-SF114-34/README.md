@@ -1,3 +1,10 @@
+# .Xresources
+
+```
+Xft.dpi: 130
+```
+
+
 # dmesg
 
 `sudo sysctl -w kernel.dmesg_restrict=0`
