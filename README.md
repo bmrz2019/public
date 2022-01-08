@@ -1,3 +1,8 @@
+# Email encoder
+
+- https://freetools.dev/email-encoder
+
+
 # Cloudready
 
 `sudo dd if=cloudready.bin of=/dev/sdX bs=4M `
