@@ -1,6 +1,7 @@
 # Email encoder
 
 - https://freetools.dev/email-encoder
+- https://hoax-info.tubit.tu-berlin.de/software/emailencoder.shtml
 
 
 # Cloudready
