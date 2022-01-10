@@ -1,3 +1,8 @@
+# fsarchiver 
+
+`#fsarchiver savefs /home/user/FSARCHIVER/10.01.2022-nvme0n1p2-root.fsa /dev/nvme0n1p2 -s 900 --exclude=/snap --exclude="/home/*"  --exclude='/media' --exclude='/var/lib/lxd/*' --exclude='/tmp/*' --exclude='/var/lib/snapd/*' -A -v`
+
+
 # Email encoder
 
 - https://freetools.dev/email-encoder
