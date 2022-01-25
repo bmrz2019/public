@@ -9,6 +9,24 @@
 - https://hoax-info.tubit.tu-berlin.de/software/emailencoder.shtml
 
 
+# Google cloud
+
+- https://console.cloud.google.com/marketplace/product/google/drive.googleapis.com
+- https://groups.google.com/a/chromium.org/g/google-browser-signin-testaccounts
+- https://groups.google.com/a/chromium.org/g/chromium-dev
+- https://console.cloud.google.com/apis/api/chromesync.googleapis.com
+
+## optional
+
+- https://console.cloud.google.com/marketplace/product/google/cloudsearch.googleapis.com
+- https://console.cloud.google.com/marketplace/product/google/safebrowsing.googleapis.com
+- https://console.cloud.google.com/marketplace/product/google/timezone-backend.googleapis.com
+- https://console.cloud.google.com/marketplace/product/google/admin.googleapis.com
+- https://console.cloud.google.com/marketplace/product/google/translate.googleapis.com
+- https://console.cloud.google.com/marketplace/product/google/embeddedassistant.googleapis.com
+- https://console.cloud.google.com/marketplace/product/google/calendar-json.googleapis.com
+- https://console.cloud.google.com/marketplace/product/google/copresence.googleapis.com
+
 # Cloudready
 
 `sudo dd if=cloudready.bin of=/dev/sdX bs=4M `
