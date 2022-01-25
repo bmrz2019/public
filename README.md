@@ -22,7 +22,7 @@
 - https://console.cloud.google.com/marketplace/product/google/safebrowsing.googleapis.com
 - https://console.cloud.google.com/marketplace/product/google/timezone-backend.googleapis.com
 - https://console.cloud.google.com/marketplace/product/google/admin.googleapis.com
-- https://console.cloud.google.com/marketplace/product/google/translate.googleapis.com
+- 💱 https://console.cloud.google.com/marketplace/product/google/translate.googleapis.com
 - https://console.cloud.google.com/marketplace/product/google/embeddedassistant.googleapis.com
 - https://console.cloud.google.com/marketplace/product/google/calendar-json.googleapis.com
 - https://console.cloud.google.com/marketplace/product/google/copresence.googleapis.com
