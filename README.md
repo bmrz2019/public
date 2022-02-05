@@ -1,3 +1,27 @@
+# solokey
+
+```sudo apt install solo-python
+solo key version
+4.0.0 locked
+```
+
+- `solo key wink`
+- `solo key update`
+- `solo key update`
+```
+Wrote temporary copy of firmware-4.1.5.json to /tmp/tmp7tfs8v2f.json
+sha256sums coincide: f36bb365bfddf75004f28af392ae1439192ca0ed821ef496084a75a00d05087a
+using signature version >2.5.3
+erasing firmware...
+updated firmware 100%             
+time: 9.24 s
+bootloader is verifying signature...
+...pass!
+
+Congratulations, your key was updated to the latest firmware version: 4.1.5
+```
+
+
 # fsarchiver 
 
 `#fsarchiver savefs /home/user/FSARCHIVER/10.01.2022-nvme0n1p2-root.fsa /dev/nvme0n1p2 -s 900 --exclude=/snap --exclude="/home/*"  --exclude='/media' --exclude='/var/lib/lxd/*' --exclude='/tmp/*' --exclude='/var/lib/snapd/*' -A -v`
