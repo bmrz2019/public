@@ -1,3 +1,8 @@
+# YouTube autoplay disable
+
+https://raw.githubusercontent.com/DandelionSprout/adfilt/master/StopAutoplayOnYouTube.txt
+
+
 # solokey
 
 ```sudo apt install solo-python
