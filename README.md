@@ -1,3 +1,25 @@
+# Xresources
+
+- lower numbers make fonts small (hard to read)
+- For a 14 inch screen 135 is good
+- Edit `.Xresources`
+
+```
+Xft.dpi: 135
+```
+
+| Size | dpi |
+|--|--|
+| 14 | 135 |
+| 17 | 128 |
+
+# List only security updates
+
+```
+apt-get --just-print upgrade | grep -i security   | awk '{print $2}'
+```
+
+
 # YouTube autoplay disable
 
 https://raw.githubusercontent.com/DandelionSprout/adfilt/master/StopAutoplayOnYouTube.txt
