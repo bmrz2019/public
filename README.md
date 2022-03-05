@@ -1,3 +1,31 @@
+# fstrim
+
+```
+cat /etc/crypttab 
+# <target name>	<source device>		<key file>	<options>
+home  UUID=783989fd-d44c-4e49-9287-a6ede15d7e13  none  luks,discard,no-read-workqueue,no-write-workqueue
+```
+
+- Enable
+
+```
+# cryptsetup --perf-no_read_workqueue --perf-no_write_workqueue --allow-discards --persistent  refresh home
+```
+
+- Verify
+
+```
+# cryptsetup luksDump  /dev/nvme0n1p4 | grep Flags
+Flags:       	allow-discards no-read-workqueue no-write-workqueue
+```
+
+
+```
+# dmsetup table 
+home: 0 905183232 crypt aes-xts-plain64 :64:logon:cryptsetup:56a88c26-0843-4be9-b333-d79a1209c166 0 259:4 32768 3 allow_discards no_read_workqueue no_write_workqueue
+```
+
+
 # Xresources
 
 - lower numbers make fonts small (hard to read)
