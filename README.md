@@ -1,3 +1,8 @@
+# Annotations
+
+- Quick: https://szoter.com/launch/ 
+- Standalone: https://github.com/ksnip/ksnip
+
 # Chromium-browser
 
 - Download from http://ftp.de.debian.org/debian/pool/main/c/chromium/
@@ -263,10 +268,6 @@ root     13393 13390  0 09:30 ?        00:00:00 /usr/sbin/smbd -D
 root     13395 13390  0 09:30 ?        00:00:00 /usr/sbin/smbd -D
 root     13435 11720  0 09:35 pts/3    00:00:00 grep --color=auto smbd
 ```
-
-
-# annotate images
-https://www.getcloudapp.com/apps
 
 # Firefox
  from https://news.ycombinator.com/item?id=16497642
