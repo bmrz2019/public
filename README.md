@@ -1,3 +1,7 @@
+# Chromium-browser
+
+- Download from http://ftp.de.debian.org/debian/pool/main/c/chromium/
+
 # fstrim
 
 ```
