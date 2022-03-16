@@ -608,9 +608,12 @@ function cgrep()
     find . -name .repo -prune -o -name .git -prune -o -type f \( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.h' \) -print0 | xargs -0 grep --color -n "$@"
 }
 
-function resgrep()
-{
-    for dir in `find . -name .repo -prune -o -name .git -prune -o -name res -type d`; do find $dir -type f -name '*\.xml' -print0 | xargs -0 grep --color -n "$@"; done;
+resgrep () 
+{ 
+    for dir in `find . -type d \( -not -name "values-*" -a -not -name "mipmap*" -a -not -name "drawable-*" -a -not -name "." \)`;
+    do
+        find $dir -type f -name '*\.xml' -exec grep --color -n "$@" {} +;
+    done
 }
 
 function mangrep()
