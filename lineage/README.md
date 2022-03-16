@@ -85,4 +85,5 @@ apt-get source ccache
 cd ccache-4.2
 mkdir build
 cmake ../ -DCMAKE_PREFIX_PATH=$HOME/soft -DZSTD_FROM_INTERNET=ON  -DCMAKE_BUILD_TYPE=Release
-cp ccache ~/soft/bin```
+cp ccache ~/soft/bin
+```
