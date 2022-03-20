@@ -1,3 +1,9 @@
+# Fdroid repos
+
+- Molly: fdroidrepos://molly.im/fdroid/foss/fdroid/repo?fingerprint=5198DAEF37FC23C14D5EE32305B2AF45787BD7DF2034DE33AD302BDB3446DF74
+- NewPipe: fdroidrepos://archive.newpipe.net/fdroid/repo/?fingerprint=E2402C78F9B97C6C89E97DB914A2751FDA1D02FE2039CC0897A462BDB57E7501
+- Fdroid: fdroidrepos://ftp.fau.de/fdroid/repo/?fingerprint=43238d512c1e5eb2d6569f4a3afbf5523418b82e0a3ed1552770abb9a9c9ccab
+
 # PDF
 
 - Split and rearrange: https://freesplit.app/
@@ -9,7 +15,8 @@
 
 # Chromium-browser
 
-- Download from http://ftp.de.debian.org/debian/pool/main/c/chromium/
+- Download from https://ftp.uni-mainz.de/ubuntu/pool/universe/c/chromium-browser
+- https://ftp.uni-stuttgart.de/ubuntu/pool/universe/c/chromium-browser
 
 # fstrim
 
