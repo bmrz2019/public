@@ -1,3 +1,14 @@
+# Gphotos Sync
+
+- `pip3 install --force-reinstall  gphotos-sync`
+- Edit `.local/lib/python3.9/site-packages/gphotos/GooglePhotosIndex.py`
+
+```diff
+-       "Indexed %d %s", self.files_indexed, media_item.relative_path
++       "https://photos.google.com/lr/photo/%s %s", media_item.id, media_item.filename
+```
+
+
 # Fdroid repos
 
 - Molly: fdroidrepos://molly.im/fdroid/foss/fdroid/repo?fingerprint=5198DAEF37FC23C14D5EE32305B2AF45787BD7DF2034DE33AD302BDB3446DF74
