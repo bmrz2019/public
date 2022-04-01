@@ -1,3 +1,7 @@
+# Android
+
+- OTAs are downloaded is android.googleapis.com  ota.googlezip.net
+
 # Gphotos Sync
 
 - `pip3 install --force-reinstall  gphotos-sync`
