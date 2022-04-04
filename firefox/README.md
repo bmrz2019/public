@@ -44,10 +44,7 @@ xattr -r -d com.apple.quarantine /Applications/Firefox.app
       "StartPage": "none"
     },
     "OverrideFirstRunPage": "",
-    "OverridePostUpdatePage": "",
-    "Preferences": {
-      "datareporting.policy.dataSubmissionPolicyBypassNotification": true
-    }
+    "OverridePostUpdatePage": ""
   }
 }
 ```
