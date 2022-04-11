@@ -1,3 +1,8 @@
+# Chromium commandline
+
+- `chromium-browser --headless --disable-gpu "https://example.com" --dump-dom 2>&1 | pup`
+- `chromium-browser --headless --disable-gpu "https://example.com" --print-to-pdf 2>&1 `
+
 # Android
 
 - OTAs are downloaded is android.googleapis.com  ota.googlezip.net
