@@ -1,7 +1,9 @@
-# Chromium commandline
+# Chromium
 
 - `chromium-browser --headless --disable-gpu "https://example.com" --dump-dom 2>&1 | pup`
 - `chromium-browser --headless --disable-gpu "https://example.com" --print-to-pdf 2>&1 `
+- Chromium org.chromium.chrome.stable No Sync • No Widevine • ThinLTO • HEVC https://github.com/macchrome/droidchrome/releases
+- https://github.com/bromite/bromite includes all codecs
 
 # Android
 
@@ -151,6 +153,25 @@ Congratulations, your key was updated to the latest firmware version: 4.1.5
 `sudo dd if=cloudready.bin of=/dev/sdX bs=4M `
 
 - If you add this to Ventoy rename the image to `.img`
+
+- Commandline installation
+
+`Ctrl+Alt+T` or `Ctrl+Alt+F2`
+
+- You'll need to log in - use the username: `chronos` and the password: `chrome`
+
+- `sudo fdisk -l | grep mmc\|sda`
+
+- Install
+
+```
+cd /usr/sbin
+sudo chromeos-install --dst /dev/sdX 
+or
+sudo chromeos-install --skip_src_removable --dst /dev/sdX
+```
+
+
 
 # Disable auto update of secureboot keys
 
