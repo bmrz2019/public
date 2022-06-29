@@ -1,3 +1,16 @@
+# ddcutil
+
+- The following command changes the Brightness and Contrast inside the external monitor, respectively.
+```
+root@linux:~# ddcutil getvcp 10
+VCP code 0x10 (Brightness                    ): current value =    40, max value =   100
+root@linux:~# ddcutil capabilities | grep "Brightness\|Contrast"
+   Feature: 10 (Brightness)
+   Feature: 12 (Contrast)
+```
+- `ddcutil setvcp 10 40`
+- `ddcutil setvcp 12 40`
+
 # Chromium
 
 - `chromium-browser --headless --disable-gpu "https://example.com" --dump-dom 2>&1 | pup`
