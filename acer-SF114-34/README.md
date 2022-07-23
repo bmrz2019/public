@@ -1,3 +1,7 @@
+# AC-power adapter
+
+`19V 2.3A 45.1W`
+
 # Disable udev
 
 Edit file 
