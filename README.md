@@ -1,8 +1,8 @@
 ## Enable developer mode on ChromeOSFlex
 
-Mount the flex SSD in a linux device (or USB boot). Identify the EFI partition
+Mount the flex SSD in a linux device (or USB boot). 
 
-sudo ```fdisk -l``` to identify the EFI System partition which in my case was /dev/sdb12
+sudo ```fdisk -l``` to identify the EFI System partition for example ```/dev/sdb12```. Then mount that partition.
 
 Edit file ```grub.cfg``` and add ```cros_debug``` to the various options
 
