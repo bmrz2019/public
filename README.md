@@ -1,3 +1,51 @@
+## Enable developer mode on ChromeOSFlex
+
+Mount the flex SSD in a linux device (or USB boot). Identify the EFI partition
+
+sudo ```fdisk -l``` to identify the EFI System partition which in my case was /dev/sdb12
+
+Edit file ```grub.cfg``` and add ```cros_debug``` to the various options
+
+Saved the ```grub.cfg``` file
+
+For meltdown/spectre add ```kvm-intel.vmentry_l1d_flush=always``` to the kernel command line the same way you added ```cros_debug``` to enable some software mitigations.
+
+
+### Chromebook writable root
+
+
+First make sure your machine is set to developer mode and then reboot to apply any pending updates.
+
+Execute the following to remove the root FS verification:
+
+```sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification```
+
+The command will fail with a warning and tell you to run the same command with ```--partitions 4``` flag at the end where 4 can be any number. Run the command again with the new flag.
+
+Then set the following variable:
+
+```sudo crossystem dev_boot_signed_only=0```
+
+Then remount your root FS with:
+
+```sudo mount -o remount,rw /```
+
+
+
+
+References:
+
+https://www.reddit.com/r/ChromeOSFlex/comments/swxlz8/tutorial_enable_developer_mode_on_cros
+
+https://www.reddit.com/r/chromeos/comments/stl9fq/enabled_developer_mode_on_chromeos_flex_by/
+
+https://old.reddit.com/r/ChromeOSFlex/comments/w3ehw7/fixing_audio_on_bay_trail_chromebooks/
+
+https://xn--1ca.se/chromebook-writable-root/
+
+
+
+
 # systemd suspend modules
 
 ```
