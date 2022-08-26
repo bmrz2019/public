@@ -1,0 +1,7 @@
+428a429,434
+>     <!-- Just add this to Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner
+>        Then one can rightclick and resize from the Titlebar -->
+>     <mousebind button="Right" action="Drag">
+>       <action name="Resize"/>
+>     </mousebind>
+> 
