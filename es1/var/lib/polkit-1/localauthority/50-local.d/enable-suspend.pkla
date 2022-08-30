@@ -1,6 +1,0 @@
-[Enable Suspend on Idle]
-Identity=unix-user:username
-Action=org.freedesktop.login1.suspend
-ResultAny=yes
-ResultInactive=yes
-ResultActive=yes
