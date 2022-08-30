@@ -2,7 +2,7 @@
 
 ### Example
 
-- ```
+```
 #!/bin/bash
 #SBATCH --partition=parallel
 #SBATCH --constraint=water
