@@ -89,12 +89,11 @@ root@linux:~# ddcutil capabilities | grep "Brightness\|Contrast"
 - `ddcutil setvcp 10 40`
 - `ddcutil setvcp 12 40`
 
-# Chromium
+# Chromium packages
 
+- Linux: https://launchpad.net/~savoury1/+archive/ubuntu/chromium
 - `chromium-browser --headless --disable-gpu "https://example.com" --dump-dom 2>&1 | pup`
 - `chromium-browser --headless --disable-gpu "https://example.com" --print-to-pdf 2>&1 `
-- Chromium org.chromium.chrome.stable No Sync • No Widevine • ThinLTO • HEVC https://github.com/macchrome/droidchrome/releases
-- https://github.com/bromite/bromite includes all codecs
 
 # Android
 
@@ -120,9 +119,6 @@ root@linux:~# ddcutil capabilities | grep "Brightness\|Contrast"
 - Quick: https://szoter.com/launch/ 
 - Standalone: https://github.com/ksnip/ksnip
 
-# Chromium-browser
-
-- https://launchpad.net/~savoury1/+archive/ubuntu/chromium
 
 # fstrim
 
