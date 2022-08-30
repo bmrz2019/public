@@ -1,8 +1,8 @@
-- `squeue -u `
+- `squeue -u`
 
 ### Example
 
-```
+- ```
 #!/bin/bash
 #SBATCH --partition=parallel
 #SBATCH --constraint=water
