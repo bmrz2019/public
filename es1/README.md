@@ -1,3 +1,21 @@
+# VPN
+
+```
+#!/bin/bash
+#split
+
+PASSWD=`/bin/cat /root/password`
+
+/bin/echo $PASSWD | openconnect -u username@example.com  vpn-ac.example.com  --passwd-on-stdin
+
+#!/bin/bash
+#internal VPN
+
+PASSWD=`/bin/cat /root/password`
+/bin/echo $PASSWD | openconnect -u username@vpn-RWI.example,com vpn-ac.example.com --passwd-on-stdin
+
+```
+
 # AC-power adapter
 
 `19V 2.3A 45.1W`
