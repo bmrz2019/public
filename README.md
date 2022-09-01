@@ -1,4 +1,10 @@
-## Enable developer mode on ChromeOSFlex
+## ChromeOS
+
+### subtitles player
+
+- https://github.com/guancio/ChromeOsSubtitle
+
+### Enable developer mode
 
 Mount the flex SSD in a linux device (or USB boot). 
 
