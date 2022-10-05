@@ -1,3 +1,12 @@
+## Rename
+
+- To rename all files so that they are compatible with FAT32
+
+```
+find ./DIRECTORY -maxdepth 1  -exec rename -n 's/[^[:ascii:]]/_/g' {} \;
+```
+
+
 ## ChromeOS
 
 ### subtitles player
