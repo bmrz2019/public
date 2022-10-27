@@ -1,3 +1,8 @@
+# Minimal Debian or ubuntu
+
+- Minimal Debian or ubuntu https://wiki.debian.org/ReduceDebian
+- To restore ``` apt-get install groff groff-base ```
+
 ## Rename
 
 - To rename all files so that they are compatible with FAT32
