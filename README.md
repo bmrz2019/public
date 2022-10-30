@@ -1,3 +1,10 @@
+# Last installed packages
+
+```
+grep --color=auto "install" /var/log/dpkg.log | grep --color=auto `date +"%Y-%m-%d"` | awk '$3~/^install$/ {printf $4" ";}'
+```
+
+
 # Minimal Debian or ubuntu
 
 - Minimal Debian or ubuntu https://wiki.debian.org/ReduceDebian
