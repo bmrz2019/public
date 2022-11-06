@@ -38,6 +38,25 @@ Saved the ```grub.cfg``` file
 For meltdown/spectre add ```kvm-intel.vmentry_l1d_flush=always``` to the kernel command line the same way you added ```cros_debug``` to enable some software mitigations.
 
 
+## Change keyboard layout Chromebook
+
+- Put in developer mode by Hold down the Escape and Refresh keys.
+- Click the power button. You can release the Escape and Refresh keys at this point.
+- Once you see the Recovery screen, hit Ctrl-D.
+- Wait a while. The Chromebook will beep at you once or twice.
+- Eventually, it’ll boot back up to the normal Chrome OS login screen.
+- Hit Ctrl-Alt-F2 (F2 is the right-facing arrow next to the refresh key) to get to a login prompt.
+
+```
+login as chronos (no password needed)
+sudo -s
+vpd -l  # to list current status
+vpd -s region=de
+```
+
+- it was NOT necessary to remove battery (i.e) modern write protect
+
+
 ### Chromebook writable root
 
 
