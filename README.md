@@ -1,3 +1,9 @@
+# Resize a video with FFmpeg for Mastodon
+
+```
+ffmpeg -i input.mp4 -vf scale=1920:-1 -vcodec libx265 -crf 24 output.mp4
+```
+
 # Last installed packages
 
 ```
