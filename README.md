@@ -829,4 +829,27 @@ function finddir()
 ```
 
 
+# CPU
 
+```
+./kcbench -b -j 4 -s ./ -i 1 | tee acer-silver.log
+Processor:           Intel(R) Pentium(R) Silver N6000 @ 1.10GHz [4 CPUs]
+Cpufreq; Memory:     powersave [intel_pstate]; 3728 MiB
+Linux running:       5.15.0-47-generic [x86_64]
+Compiler:            gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0
+Linux compiled:      6.0.9 [/linux-6.0.9/./]
+Config; Environment: defconfig; CCACHE_DISABLE="1"
+Build command:       make vmlinux
+Run 1 (-j 4):        1010.36 seconds / 3.56 kernels/hour [P:391%, 1678 maj. pagefaults]
+
+./kcbench -b -j 4 -s ./ -i 1
+Processor:           Intel(R) Core(TM) i3-1005G1 CPU @ 1.20GHz [4 CPUs]
+Cpufreq; Memory:     powersave [intel_pstate]; 7605 MiB
+Linux running:       5.15.0-47-generic [x86_64]
+Compiler:            gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0
+Linux compiled:      6.0.9 [/linux-6.0.9/./]
+Config; Environment: defconfig; CCACHE_DISABLE="1"
+Build command:       make vmlinux
+Run 1 (-j 4):        508.25 seconds / 7.08 kernels/hour [P:391%, 1464 maj. pagefaults]
+
+```
