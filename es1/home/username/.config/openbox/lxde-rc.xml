@@ -297,18 +297,22 @@
     <keybind key="W-Left">        # HalfLeftScreen
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo"><x>0</x><y>0</y><height>100%</height><width>50%</width></action>
+      <action name="Raise"/>
     </keybind>
     <keybind key="W-Right">        # HalfRightScreen
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo"><x>-0</x><y>0</y><height>100%</height><width>50%</width></action>
+      <action name="Raise"/>
     </keybind>
     <keybind key="W-Up">        # HalfUpperScreen
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo"><x>0</x><y>0</y><width>100%</width><height>50%</height></action>
+      <action name="Raise"/>
     </keybind>
     <keybind key="W-Down">        # HalfLowerScreen
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo"><x>0</x><y>-0</y><width>100%</width><height>50%</height></action>
+      <action name="Raise"/>
     </keybind>
     <!-- Keybindings for running applications on Home + E -->
     <keybind key="W-e">
@@ -329,12 +333,6 @@
     <keybind key="A-F2">
       <action name="Execute">
         <command>lxsession-default launcher</command>
-      </action>
-    </keybind>
-    <!-- Keybindings for running Menu from Lxpanel -->
-    <keybind key="Super_L">
-      <action name="Execute">
-        <command>lxpanelctl menu</command>
       </action>
     </keybind>
     <keybind key="C-Escape">
