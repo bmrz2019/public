@@ -1,3 +1,7 @@
+# yt-dlp search regex
+```
+yt-dlp --output "%(title)s.%(ext)s" --restrict-filenames -x --audio-format mp3 --match-filters "title~='(?i)\bSTRING-HERE\b'" 
+```
 # Resize a video with FFmpeg for Mastodon
 
 ```
