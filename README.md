@@ -398,6 +398,13 @@ To perform a factory reset on your headset
 # Samba
 
 ```
+apt-get install samba tdb-tools samba-common-bin samba-common python3-samba python3-tdb python3-dnspython
+systemctl disable smbd.service nmbd.service
+```
+
+### For use of samba inside LXD (Xenial)
+
+```
 root@host:~# service smbd restart
 root@host:~# netstat -apn | grep 445
 tcp        0      0 127.0.0.1:445           0.0.0.0:*               LISTEN      13390/smbd      
