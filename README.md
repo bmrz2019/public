@@ -1,7 +1,3 @@
-# yt-dlp search regex
-```
-yt-dlp --output "%(title)s.%(ext)s" --restrict-filenames -x --audio-format mp3 --match-filters "title~='(?i)\bSTRING-HERE\b'" 
-```
 # Resize a video with FFmpeg for Mastodon
 
 ```
@@ -11,7 +7,7 @@ ffmpeg -i input.mp4 -vf scale=1920:-1 -vcodec libx265 -crf 24 output.mp4
 # Last installed packages
 
 ```
-grep --color=auto "install" /var/log/dpkg.log | grep --color=auto `date +"%Y-%m-%d"` | awk '$3~/^install$/ {printf $4" ";}'
+grep --color=auto "install" /var/log/dpkg.log | awk '$3~/^install$/ {printf $4" ";}'
 ```
 
 
@@ -255,9 +251,13 @@ Congratulations, your key was updated to the latest firmware version: 4.1.5
 ```
 
 
-# fsarchiver 
+# fsarchiver rsync full system backup
 
-`#fsarchiver savefs /home/user/FSARCHIVER/10.01.2022-nvme0n1p2-root.fsa /dev/nvme0n1p2 -s 900 --exclude=/snap --exclude="/home/*"  --exclude='/media' --exclude='/var/lib/lxd/*' --exclude='/tmp/*' --exclude='/var/lib/snapd/*' -A -v`
+```
+#fsarchiver savefs /home/user/FSARCHIVER/10.01.2022-nvme0n1p2-root.fsa /dev/nvme0n1p2 -s 900 --exclude=/snap --exclude="/home/*"  --exclude='/media' --exclude='/var/lib/lxd/*' --exclude='/tmp/*' --exclude='/var/lib/snapd/*' -A -v
+#rsync -aAXHv -x  --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/snap/*","/home/*"}  /   /media/500GB/SYSTEM_ROOT/
+```
+
 
 
 # Email encoder
@@ -329,14 +329,19 @@ the result
 `s yes `
 
 # yt-dlp
-`yt-dlp -f 'w[ext=mp4]'`
-
-`yt-dlp --min-sleep-interval 2 --max-sleep-interval 4  -f 'b' -S 'filesize~100M'`
+```
+yt-dlp -f 'w[ext=mp4]'
+yt-dlp --min-sleep-interval 2 --max-sleep-interval 4  -f 'b' -S 'filesize~100M'
+yt-dlp --output "%(title)s.%(ext)s" --restrict-filenames -x --audio-format mp3 --match-filters "title~='(?i)\bSTRING-HERE\b'" 
+```
 
 
 # subsync
-`/snap/bin/subsync -c sync -s old_subtitle.srt -r input.mp4 --ref-lang eng --sub-lang=eng --ref-stream-by-type=audio --out corrected_subtitle.srt`
+```
+/snap/bin/subsync -c sync -s old_subtitle.srt -r input.mp4 --ref-lang eng --sub-lang=eng --ref-stream-by-type=audio --out corrected_subtitle.srt
+snap connect subsync:removable-media
 
+```
 
 # Gcloud
 `curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -`
@@ -855,5 +860,15 @@ Linux compiled:      6.0.9 [/linux-6.0.9/./]
 Config; Environment: defconfig; CCACHE_DISABLE="1"
 Build command:       make vmlinux
 Run 1 (-j 4):        508.25 seconds / 7.08 kernels/hour [P:391%, 1464 maj. pagefaults]
+
+./kcbench -b -j 16 -s ./ -i 1 | tee thinkpad.log
+Processor:           AMD Ryzen 7 PRO 5850U with Radeon Graphics [16 CPUs]
+Cpufreq; Memory:     schedutil [amd-pstate]; 11788 MiB
+Linux running:       5.15.0-47-generic [x86_64]
+Compiler:            gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0
+Linux compiled:      6.0.9 [/linux-6.0.9/./]
+Config; Environment: defconfig; CCACHE_DISABLE="1"
+Build command:       make vmlinux
+Run 1 (-j 16):       178.47 seconds / 20.17 kernels/hour [P:1497%, 2450 maj. pagefaults]
 
 ```
