@@ -394,13 +394,32 @@ To perform a factory reset on your headset
  3. Long press for approximately 5 seconds.  
  4. The LED indicator will flash twice in orange
 
+# fat32
+
+```
+mkfs.vfat -s 16 -S 4096
+```
 
 # Samba
 
 ```
 apt-get install samba tdb-tools samba-common-bin samba-common python3-samba python3-tdb python3-dnspython
 systemctl disable smbd.service nmbd.service
+chown nobody:nogroup /path/to/share # or give rx permissions to the directory of share
 ```
+
+edit ` /etc/samba/smb.conf`
+
+```
+[share]
+    comment = Ubuntu File Server Share
+    path = /path/to/share
+    browsable = yes
+    guest ok = yes
+    read only = yes
+    create mask = 0755
+```
+
 
 ### For use of samba inside LXD (Xenial)
 
