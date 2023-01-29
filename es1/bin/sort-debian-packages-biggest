@@ -1,0 +1,32 @@
+#!/bin/sh
+# lists installed Debian packages, sorting by package size
+
+# This could just be a perl script extracting the install package info.
+# but I made it a sh script to allow for sort manipulation afterwards.
+
+# Installed packages read from /var/lib/dpkg/status
+echo '
+open(FILE,"/var/lib/dpkg/status");
+$_=<FILE>;
+while ($_)
+{
+	if ( /Package:/ )
+	{
+		@package = split(" ",$_);
+		$_=<FILE>; 
+		if ( /install ok installed/ )
+		{		
+			do 
+			{ 
+				$_=<FILE>; 
+			}
+			until ( /Size:/ );
+			@size = split(" ",$_);
+         $m_size = $size[1]/1000;
+         print("$package[1]   $m_size\n");
+		}
+	}
+	$_=<FILE>;
+}
+' | perl  | sort -nr -k2 | head -10
+
