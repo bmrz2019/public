@@ -1,4 +1,0 @@
-#!/bin/bash
-
-for i in `ls *.jpg`; do exiftool -overwrite_original -all= $i; done
-
