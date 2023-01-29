@@ -1,0 +1,35 @@
+#!/bin/bash
+# Copyright (C) 2012 Vít Šesták <v6ak.com>
+# This program is free software. It comes without any warranty, to
+# the extent permitted by applicable law. You can redistribute it
+# and/or modify it under the terms of the Do What The Fuck You Want
+# To Public License, Version 2, as published by Sam Hocevar. See
+# http://www.wtfpl.net/ for more details.
+
+# This utility notifies about completed messages of Task spooler (see http://viric.name/soft/ts/).
+# Just add the path to this utility to $TS_ONFINISH.
+# This utility is not a part of Task spooler. It is a separate project with a different author.
+#
+# You may want to add following line to .bashrc:
+# export TS_ONFINISH=/usr/bin/ts-finished
+
+#jobid errorlevel output_filename and command
+
+jobid="$1"
+error="$2"
+outfile="$3"
+command="$4"
+
+#   cat article.html | mail -s "$(echo -e "$SUBJECT \nContent-Type: text/html;charset=UTF-8")"  markus.21200@gmail.com
+
+if [ "$error" = 0 ]; then
+   icon=terminal
+else
+   cat $outfile  | grep -v ETA | s-nail  -s "$(echo -e $command)" occb.1977@icloud.com
+fi
+
+
+
+
+exit 0
+
