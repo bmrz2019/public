@@ -1,3 +1,11 @@
+# adb enable rescan media
+
+```
+adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///storage/emulated/0/DCIM/Camera/
+adb shell content query --uri "content://media/external/file"
+```
+
+
 # Enable touchpad
 
 ```
