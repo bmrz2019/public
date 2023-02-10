@@ -16,10 +16,12 @@ xinput set-prop $ID "Device Enabled" 1
 echo 'Touchpad has been enabled.'
 ```
 
-# Resize a video with FFmpeg for Mastodon
+# ffmpeg
 
 ```
-ffmpeg -i input.mp4 -vf scale=1920:-1 -vcodec libx265 -crf 24 output.mp4
+ffmpeg -i input.mp3 -ss 60 output.mp3 # skip 60 seconds at start
+ffmpeg -i input.mp3 -to 00:52:00 output.mp3 # Stop writing the output at time
+ffmpeg -i input.mp4 -vf scale=1920:-1 -vcodec libx265 -crf 24 output.mp4 # mastodon
 ```
 
 # Last installed packages
