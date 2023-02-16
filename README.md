@@ -25,7 +25,6 @@ Create file with `rx` permisions `/usr/lib/pm-utils/sleep.d/01keyboardbacklight`
 
 #apt-get install -y brightnessctl
 brightnessctl --device='tpacpi::kbd_backlight' set 1 >/dev/null 2>/dev/null
-exit 0
 ```
 
 
