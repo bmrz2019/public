@@ -405,27 +405,6 @@ fusermount -u ~/visible
 
 ```
 
-# SBH24 Stereo Bluetooth
-
-| Multi function key | ⏯️ |
-|--|--|
-| Short press | Answer incoming/end calls |
-| Short press | Play or pause the current track |
-| Long press  | 7 seconds to: Enter pairing mode. |
-| Double tap  | Skip to the next music track |
-| Triple tap  | Return to the previous music track |
-
-| LED | Green | Orange | Red |
-|--   |--     |--      |  -- |
-| Battery  | 85% or more | 15% - 85% | 15% or less  |
-
-To perform a factory reset on your headset
-
- 1. Connect your headset to a power source.  
- 2. Turn your headset.  
- 3. Long press for approximately 5 seconds.  
- 4. The LED indicator will flash twice in orange
-
 # fat32
 
 ```
