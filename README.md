@@ -18,7 +18,7 @@ echo 'Touchpad has been enabled.'
 ```
 
 ## Enable thinkpad keyboard backlight after resume
-Create file with rx `/usr/lib/pm-utils/sleep.d/01keyboardbacklight` and add
+Create file with `rx` permisions `/usr/lib/pm-utils/sleep.d/01keyboardbacklight` and add
 
 ```
 #!/bin/bash
