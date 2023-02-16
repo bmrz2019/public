@@ -6,8 +6,9 @@ adb shell content query --uri "content://media/external/file"
 ```
 
 
-# Enable touchpad
+# Thinkpad
 
+## Touchpad
 ```
 #!/bin/bash
 declare -i ID
@@ -15,6 +16,18 @@ ID=`xinput list | grep -Eo 'TouchPad\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'`
 xinput set-prop $ID "Device Enabled" 1
 echo 'Touchpad has been enabled.'
 ```
+
+## Enable thinkpad keyboard backlight after resume
+Create file with rx `/usr/lib/pm-utils/sleep.d/01keyboardbacklight` and add
+
+```
+#!/bin/bash
+
+#apt-get install -y brightnessctl
+brightnessctl --device='tpacpi::kbd_backlight' set 1 >/dev/null 2>/dev/null
+exit 0
+```
+
 
 # ffmpeg
 
