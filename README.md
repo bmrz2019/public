@@ -183,9 +183,10 @@ root@linux:~# ddcutil capabilities | grep "Brightness\|Contrast"
 
 - OTAs are downloaded is android.googleapis.com  ota.googlezip.net
 
-# Gphotos Sync
+# gphotos sync
 
 - `pip3 install --force-reinstall  gphotos-sync`
+- `~/.local/bin/gphotos-sync  --index-only --use-flat-path --progress --rescan --flush-index /tmp/Pictures`
 - Edit `.local/lib/python3.9/site-packages/gphotos/GooglePhotosIndex.py`
 
 ```diff
