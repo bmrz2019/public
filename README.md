@@ -1,3 +1,12 @@
+# XDG
+
+Add file `/etc/profile.d/xdg-cache.sh` with
+
+```
+export XDG_CACHE_HOME="/tmp/.cache"
+```
+
+
 # adb enable rescan media
 
 ```
