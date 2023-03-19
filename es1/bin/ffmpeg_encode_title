@@ -1,0 +1,66 @@
+#!/bin/bash
+
+shopt -s globstar
+IFS=$'\n' # Input Field Separator
+FILENAME_I="$@"
+if [ -z "$@" ]; then
+  echo "Usage: $0 filename"
+  exit 0
+fi
+
+if [ ! -e $FILENAME_I ]; then
+ echo "File not found"
+ exit 0
+fi
+
+ extension="${FILENAME_I##*.}"
+ prefix="${FILENAME_I%.*}"
+
+ ACODEC=$(ffmpeg -i $FILENAME_I 2>&1 | grep "Audio" | sed -e 's/.*Audio: //' -e 's/[, ].*//')
+ if [ $ACODEC == "ac3" ]; then
+  echo "Warning ACODEC is ac3"
+  echo "ffmpeg -loglevel warning -hide_banner -i "${FILENAME_I}" -map_metadata -1 -c:a aac -ac 2 -c:v copy "${prefix}".mp4"
+  ffmpeg -loglevel warning -hide_banner -i "${FILENAME_I}" -map_metadata -1 -c:a aac -ac 2 -c:v copy "${prefix}"aac.mp4
+  sleep 1
+  mv "${prefix}"aac.mp4 "${FILENAME_I}"
+  echo "Encoding over. "
+# exit 0
+ fi
+ 
+ FRAME_RATE=$(ffmpeg -i $FILENAME_I 2>&1 | sed -n "s/.*, \(.*\) fp.*/\1/p")
+ echo $FRAME_RATE
+ ffmpeg -loglevel warning -hide_banner -i $FILENAME_I -t 1 -y 1.title.mp3
+# dump frame
+# ffmpeg -loglevel warning -hide_banner -i $FILENAME_I -frames:v 1 -q:v 2 -y /tmp/snapshot.jpg
+ cp -v /tmp/snapshot.jpg snapshot.jpg
+ VIDEO_DIMENSIONS=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 $FILENAME_I)
+ SNAPSHOT_DIMENSIONS=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 snapshot.jpg)
+ if [ $VIDEO_DIMENSIONS != $SNAPSHOT_DIMENSIONS ]
+ then
+   echo "Wrong dimensions"
+   echo $VIDEO_DIMENSIONS "   "  $SNAPSHOT_DIMENSIONS
+   exit 0
+ fi
+
+ ffmpeg -loglevel warning -hide_banner -loop 1 -framerate $FRAME_RATE -t 1 -i snapshot.jpg -i 1.title.mp3 -c:v libx264 -preset ultrafast -qp 0  -c:a aac -b:a 192k -pix_fmt yuv420p -shortest -y 1.title.mp4
+# OSD
+# ffmpeg -loglevel warning -hide_banner -i 1.title.mp4 -threads 15 \
+#    -vf "subtitles=title.srt:force_style='OutlineColour=&H40000000,Fontsize=42,BorderStyle=1'" \
+#    -y 2.title.mp4
+
+#### -fflags +discardcorrupt
+  ffmpeg -loglevel warning -hide_banner -i 1.title.mp4 -c copy -avoid_negative_ts make_zero -y title.ts
+# The main film is seeked by 39 seconds  -ss 00:00:39.005
+  ffmpeg -loglevel warning -hide_banner -i $FILENAME_I -c copy -avoid_negative_ts make_zero -y source.ts
+# ffmpeg -loglevel warning -hide_banner -i "concat:title.ts|source.ts" -c copy -avoid_negative_ts make_zero -t 60 -y $prefix"..mp4"
+  ffmpeg -loglevel warning -hide_banner -i "concat:title.ts|source.ts" -c copy -avoid_negative_ts make_zero -y $prefix"..mp4"
+  rm -f title.ts source.ts 1.title.mp4 1.title.mp3
+  mv $prefix..mp4 $FILENAME_I
+
+sleep 1
+adb-sync $FILENAME_I /storage/emulated/0/DCIM/Camera
+sleep 2
+adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///storage/emulated/0/DCIM/Camera/ > /dev/null 2>&1
+sleep 2
+#adb shell content query --uri "content://media/external/file" > /dev/null 2>&1
+exit 0
