@@ -14,6 +14,13 @@ xattr -r -d com.apple.quarantine /Applications/Firefox.app
 ```
 {
   "policies": {
+    "SanitizeOnShutdown": {
+      "Cache": true,
+      "History": true,
+      "Sessions": true,
+      "SiteSettings": true,
+      "Locked": false
+    },
     "ExtensionSettings": {
       "*": {
         "blocked_install_message": "Do it.",
