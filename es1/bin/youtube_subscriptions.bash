@@ -6,6 +6,7 @@ auth_key='yaABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 function do_subscribe () {
 echo $1
+sleep 1
 
 curl --request POST \
   "https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet" \
