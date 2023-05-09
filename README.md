@@ -920,6 +920,18 @@ Run 1 (-j 16):       178.47 seconds / 20.17 kernels/hour [P:1497%, 2450 maj. pag
 
 ```
 
+# Android Go
+
+```
+build/make/target/product/go_defaults_512.mk
+build/make/target/product/go_defaults_common.mk
+build/make/target/product/go_defaults.mk
+build/make/target/board/go_defaults_512.prop
+build/make/target/board/go_defaults_common.prop
+build/make/target/board/go_defaults.prop
+```
+
+
 
 # Pixel
 
