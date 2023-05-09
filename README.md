@@ -919,3 +919,27 @@ Build command:       make vmlinux
 Run 1 (-j 16):       178.47 seconds / 20.17 kernels/hour [P:1497%, 2450 maj. pagefaults]
 
 ```
+
+
+# Pixel
+
+```
+storage.googleapis.com
+afwprovisioning-pa.googleapis.com
+www.gstatic.com
+googlehosted.l.googleusercontent.com
+ota-cache1.googlezip.net
+dl.google.com
+instantmessaging-pa.googleapis.com
+www.google.com
+ssl.gstatic.com
+ota.googlezip.net
+digitalassetlinks.googleapis.com
+clients.l.google.com
+gstatic.com
+mobile-gtalk.l.google.com
+mobile.l.google.com
+lpa.ds.gsma.com
+connectivitycheck.gstatic.com
+app-measurement.com
+```
