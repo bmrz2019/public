@@ -6,6 +6,16 @@ Add file `/etc/profile.d/xdg-cache.sh` with
 export XDG_CACHE_HOME="/tmp/.cache"
 ```
 
+# VLC
+
+In ubuntu the video output is defined in the file `$HOME/snap/vlc/common/vlcrc`
+
+```
+# Video output module (string)
+vout=xcb_xv
+```
+or use `/snap/bin/vlc --vout=xcb_xv`
+
 
 # adb enable rescan media
 
