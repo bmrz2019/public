@@ -965,3 +965,16 @@ lpa.ds.gsma.com
 connectivitycheck.gstatic.com
 app-measurement.com
 ```
+
+
+# Pixel battery
+
+```
+I cut the Battery Management PCB off of the battery and soldered the output of the buck converter to the B+ and B- pads (remember to check polarity). I then soldered another wire to the B- pad and grounded it on the screw that secures the LCD.  4.2V 5A Buck Converter.
+
+You will need to cut the small battery management PCB from the battery. Solder 3 wire to the battery management board. (1 wire to battery [B+], and 2 wire to battery[B-]). Connect one of 2 wire that connected to battery [B-] terminal to a ground point of the pixel main PCB. Supply the power for the phone with about 4.2V PSU. I tried some ground points of the pixel main board. Some point will allow the phone power up but cannot pass the boot screen. The most easy and fully working ground point is the bolt that hold LCD cable(Check the image below ).
+
+I managed to also make mine work, but ended up using less hardware. I have an old Oneplus brick that supplies 5V 4A. I took that and wired it up to the board exactly like everyone else. So far it's running. I want to run it for awhile before considering it a complete great success.
+
+```
+
