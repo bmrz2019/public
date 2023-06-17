@@ -78,6 +78,13 @@ find ./DIRECTORY -maxdepth 1  -exec rename -n 's/[^[:ascii:]]/_/g' {} \;
 
 ## ChromeOS
 
+
+### recovery 
+
+- https://chromiumdash.appspot.com/serving-builds?deviceCategory=ChromeOS
+
+- https://cros.tech/
+
 ### subtitles player
 
 - https://github.com/guancio/ChromeOsSubtitle
