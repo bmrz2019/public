@@ -372,11 +372,14 @@ def BuildFileList(fs: OSLike, path: bytes, follow_links: bool,
         g = glob.glob(path + x.encode())
       excludes['x'].extend(g)
     for n in files:
-      if n == b'.' or n == b'..' or n == b'.inflight' or n == b'.inflight_lowres' or n == b'Signal' or n == b'.Shared' or n == b'.facebook_cache' or n == b'obb' or n == b'Android' or n == b'.thumbnails' or n == b'org.quantumbadger.redreader' or n == b'org.schabi.newpipe' or n == b'com.android.gallery3d' or n == b'com.android.providers.media' or n == b'com.cyanogenmod.eleven' or n == b'ImageCache' or n == b'de.danoeh.antennapod' or n == b'org.videolan.vlc':
-      #if n == b'.' or n == b'..' or n == b'.Shared' or n == b'.facebook_cache' or n == b'obb' or n == b'.thumbnails' or n == b'org.quantumbadger.redreader' or n == b'org.schabi.newpipe' or n == b'com.android.gallery3d' or n == b'com.android.providers.media' or n == b'com.cyanogenmod.eleven' or n == b'ImageCache' or n == b'de.danoeh.antennapod' or n == b'org.videolan.vlc':
+      #if n == b'.' or n == b'..' or n == b'TWRP' or n.decode() in 'com.whatsapp' or n.decode() in 'com.instagram.android' or n.decode() in 'com.github.axet.audiorecorder' or n == 'com.vonglasow.michael.satstat' or n == 'WwhhaattssAapp' or n == b'Mmoovviiees' or n == b'Aurora' or n == b'.inflight' or n == b'.inflight_lowres' or n == b'Signal' or n == b'.Shared' or n == b'.facebook_cache' or n == b'obb' or n == b'Aaandroid' or n == b'.thumbnails' or n == b'org.quantumbadger.redreader' or n == b'org.schabi.newpipe' or n == b'com.android.gallery3d' or n == b'com.android.providers.media' or n == b'com.cyanogenmod.eleven' or n == b'ImageCache' or n == b'de.danoeh.antennapod' or n == b'org.videolan.vlc':
+#     if n == b'.' or n == b'..' or n.decode() in 'com.whatsapp' or n.decode() in 'com.instagram.android' or n.decode() in 'com.github.axet.audiorecorder' or n == 'com.vonglasow.michael.satstat' or n == 'WwhhaattssAapp' or n == b'Mmoovviiees' or n == b'Aurora' or n == b'.inflight' or n == b'.inflight_lowres' or n == b'Signal' or n == b'.Shared' or n == b'.facebook_cache' or n == b'obb' or n == b'Aaandroid' or n == b'.thumbnails' or n == b'org.quantumbadger.redreader' or n == b'org.schabi.newpipe' or n == b'com.android.gallery3d' or n == b'com.android.providers.media' or n == b'com.cyanogenmod.eleven' or n == b'ImageCache' or n == b'de.danoeh.antennapod' or n == b'org.videolan.vlc':
+      if n.decode() in '.' or n.decode() in '..' or n.decode() in 'com.whatsapp' or n.decode() in 'com.instagram.android' or n.decode() in 'com.github.axet.audiorecorder' or n.decode() in 'com.vonglasow.michael.satstat' or n.decode() in 'WwhhaattssAapp' or n.decode() in 'Mmoovviiees' or n.decode() in 'Aurora' or n.decode() in '.inflight' or n.decode() in '.inflight_lowres' or n.decode() in 'Signal' or n.decode() in '.Shared' or n.decode() in '.facebook_cache' or n.decode() in 'obb' or n.decode() in 'Aaandroid' or n.decode() in '.thumbnails' or n.decode() in 'org.quantumbadger.redreader' or n.decode() in 'org.schabi.newpipe' or n.decode() in 'com.android.gallery3d' or n.decode() in 'com.android.providers.media' or n.decode() in 'com.cyanogenmod.eleven' or n.decode() in 'ImageCache' or n.decode() in 'de.danoeh.antennapod' or n.decode() in 'org.videolan.vlc':
       #### exclude here
+        logging.info('Excluding %s.', path.decode() + '/' + n.decode())
         continue
-      if n.decode().endswith(('mp4','mkv')):
+      #if n.decode().endswith(('clean','jpg','m4a','avi','mp4','mkv','mp3','DCIM','pdf','bin','apk','gppppx','jpeg')):
+      if n.decode().endswith(('mmpp3','waav','ppddff','bbiinn','appk','mkkv','mpp4')):
         logging.info('Excluding %s.', path.decode() + '/' + n.decode())
         continue
       if ((path + n) in excludes['x']):
@@ -646,9 +649,9 @@ class FileSyncer(object):
         for name, s in self.src_only[i]:
           src_name = self.src[i] + name
           dst_name = self.dst[i] + name
-          time.sleep(0.9)
-          print("Printed after 0.9 second sleep.")
-          logging.info('%s: %r', self.push[i], dst_name)
+          time.sleep(0.1)
+          # print("Printed after 0.1 second sleep.")
+          # logging.info('%s: %r', self.push[i], dst_name)
           if stat.S_ISDIR(s.st_mode):
             if not self.dry_run:
               self.dst_fs[i].makedirs(dst_name)
