@@ -1,3 +1,7 @@
+# RFC 3339 date-time now
+
+`2023-08-10T09:41:36+00:00`
+
 # XDG
 
 Add file `/etc/profile.d/xdg-cache.sh` with
