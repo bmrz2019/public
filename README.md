@@ -338,6 +338,7 @@ Congratulations, your key was updated to the latest firmware version: 4.1.5
 
 ## optional
 
+- https://myaccount.google.com/connections/settings
 - https://console.cloud.google.com/marketplace/product/google/cloudsearch.googleapis.com
 - https://console.cloud.google.com/marketplace/product/google/safebrowsing.googleapis.com
 - https://console.cloud.google.com/marketplace/product/google/timezone-backend.googleapis.com
