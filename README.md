@@ -1,3 +1,51 @@
+# Docker
+
+`docker images | grep '3 weeks ago' | awk '{print $1 ":" $2}' | xargs -n 1 docker rmi`
+
+
+```
+#!/bin/bash
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+LOCK="/tmp/disk_usage_docker_cleanup.lock"
+if [ -f $LOCK ] ; then
+ echo "Lockfile exists, aborting."
+ exit 0
+fi
+touch $LOCK
+  
+#use $HOSTNAME
+
+echo "------------------------------------------" >> /root/README.df
+echo -n "Disk usage on " >> /root/README.df
+date +%F >> /root/README.df
+
+df -h  / | grep / >> /root/README.df
+
+echo " " >> /root/README.df
+echo " " >> /root/README.df
+echo "Information from clear-docker-cache space " >> /root/README.df
+/usr/share/gitlab-runner/clear-docker-cache space >> /root/README.df
+
+echo "------------------------------------------" >> /root/README.df
+echo " " >> /root/README.df
+echo " " >> /root/README.df
+
+#next line determines current % use
+CURRENT=$(df / | grep / | awk '{ print $5}' | sed 's/%//g')
+if [[ $CURRENT -gt 50 ]]; then
+ FREE=$(df -h / | grep / | awk '{ print $4}')
+ #echo "Low disk space home in $HOSTNAME Only $FREE available."  | mail -s "Warning low disk space in $HOSTNAME" noreply@example.com
+ #/usr/share/gitlab-runner/clear-docker-cache space
+ docker rmi $(docker images -q --no-trunc) > /dev/null 2>&1
+fi
+rm -f $LOCK
+
+exit 0
+```
+
+
 # RFC 3339 date-time now
 
 `2023-08-10T09:41:36+00:00`
