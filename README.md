@@ -1011,7 +1011,16 @@ build/make/target/board/go_defaults.prop
 
 # Pixel
 
-- Flash `mkdir tmp && TMPDIR="$PWD/tmp" ./flash-all.sh`
+- Sargo A11 installation
+
+```
+cd sargo-rq3a.211001.001
+mkdir tmp && TMPDIR="$PWD/tmp" ./flash-all.sh
+fastboot flash boot  lineage-19.1-20230404-nightly-sargo-BOOT-RECOVERY.img
+adb sideload lineage-19.1-20230419-microG-sargo.zip
+adb sideload lineage-18.1-20220406-microG-sargo.zip
+adb sideload lineage-18.1-20230817-UNOFFICIAL-sargo.zip
+```
 
 - URLs
 
