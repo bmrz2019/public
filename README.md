@@ -1,6 +1,11 @@
 # Docker
 
-`docker images | grep '3 weeks ago' | awk '{print $1 ":" $2}' | xargs -n 1 docker rmi`
+```
+systemctl status gitlab-runner.service
+systemctl restart gitlab-runner
+docker images | grep '3 weeks ago' | awk '{print $1 ":" $2}' | xargs -n 1 docker rmi
+journalctl -u gitlab-runner.service -f
+```
 
 
 ```
@@ -1006,6 +1011,10 @@ build/make/target/board/go_defaults.prop
 
 # Pixel
 
+- Flash `mkdir tmp && TMPDIR="$PWD/tmp" ./flash-all.sh`
+
+- URLs
+
 ```
 storage.googleapis.com
 afwprovisioning-pa.googleapis.com
@@ -1028,7 +1037,7 @@ app-measurement.com
 ```
 
 
-# Pixel battery
+- Pixel battery
 
 ```
 I cut the Battery Management PCB off of the battery and soldered the output of the buck converter to the B+ and B- pads (remember to check polarity). I then soldered another wire to the B- pad and grounded it on the screw that secures the LCD.  4.2V 5A Buck Converter.
