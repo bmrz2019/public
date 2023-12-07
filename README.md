@@ -385,6 +385,8 @@ Congratulations, your key was updated to the latest firmware version: 4.1.5
 # Google cloud
 
 - https://myaccount.google.com/dashboard?continue=https%3A%2F%2Fmyaccount.google.com%2Fdata-and-privacy
+- https://www.google.com/setting/search/privateresults
+- https://myaccount.google.com/connections/settings?hl=en
 - https://console.cloud.google.com/marketplace/product/google/drive.googleapis.com
 - https://groups.google.com/a/chromium.org/g/google-browser-signin-testaccounts
 - https://groups.google.com/a/chromium.org/g/chromium-dev
