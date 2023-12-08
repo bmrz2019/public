@@ -960,6 +960,12 @@ function finddir()
     find . -name .repo -prune -o -name .git -prune -o -path ./out -prune -o -type d -iname "$@"| grep -v ".git" | grep -v ".repo"
 }
 
+function renameapp()
+{
+    find ./ -type f \( -iname \*.iml -o -iname \*gradle  -o -iname \*.java -o -iname \*xml  \)  -printf '%P\n'  -exec perl -pi -e 's/OLDNAME/NEWNAME/g' '{}' \+
+}
+
+
 ```
 
 
