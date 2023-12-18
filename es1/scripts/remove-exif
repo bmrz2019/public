@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in `ls *.jpg`; do exiftool -all= $i; done
+for i in `find . -iname *.jpg`; do exiftool -all= $i; done
 
 # if you want to rename
 # J=1; for i in `ls IMG*jpg`; do echo $i;echo $(( J++ )); cp  $i $J."jpg" ; done
