@@ -11,11 +11,27 @@ rm -rf .repo/projects/external/chromium-webview/prebuilt/*.git
 rm -rf .repo/project-objects/LineageOS/android_external_chromium-webview_prebuilt_*.git
 repo sync blah
 ```
- 
+
+## NFS
+
+- Avoid compiling with NFS https://issuetracker.google.com/issues/207292791
+
+## compile script
+```
+#!/bin/bash
+
+export CPU_SSE42=false
+#repo init --git-lfs
+export OUT_DIR=/localdisk/lineageos-18.1/out
+source build/envsetup.sh
+WITH_GMS=true CPU_SSE42=false brunch sargo
+```
+
 ## microG patch
 
 - https://github.com/lineageos4microg/docker-lineage-cicd/tree/master/src/signature_spoofing_patches
 - Once you've downloaded the correct patch for your build version, change to the `frameworks/base` directory of your build tree and run `patch -p1 -i "path/to/where/you/saved/the/patch"`
+- Add also https://github.com/lineageos4microg/android_vendor_partner_gms
   
 ## Shutdown
 
