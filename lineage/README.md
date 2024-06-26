@@ -1,7 +1,16 @@
-## Bromite systemwebview
+## git lfs systemwebview
 
-- https://github.com/bromite/bromite/releases
-- Replace `arm64_SystemWebView.apk` in the directory `lineage-17.1/external/chromium-webview/prebuilt/arm64`
+```
+wget https://github.com/git-lfs/git-lfs/releases/download/v3.5.1/git-lfs-linux-
+amd64-v3.5.1.tar.gz
+Edit: prefix inside ./install.sh to point to local bin and run ./install.sh
+
+repo init --git-lfs
+rm -rf external/chromium-webview/prebuilt/*
+rm -rf .repo/projects/external/chromium-webview/prebuilt/*.git
+rm -rf .repo/project-objects/LineageOS/android_external_chromium-webview_prebuilt_*.git
+repo sync blah
+```
  
 ## microG patch
 
