@@ -53,7 +53,8 @@ exit 0
 # git
 
 ```
-git archive main | tar -x -C /existing/dir
+GIT_WORK_TREE=/tmp/zzz/ git checkout -f
+git archive main | tar -x -C /existing/dir/
 ```
 
 
