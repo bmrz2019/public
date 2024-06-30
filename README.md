@@ -915,7 +915,13 @@ chown -R user.user /nameofzpool/datasets
 ```
 
 ## commands
+
+- Android project rename
+
 ```
+find ./ -type f \( -iname \*.iml -o -iname \*gradle  -o -iname \*.java -o -iname \*xml  \)  -printf '%P\n'  -exec perl -pi -e 's/OLDNAME/NEWNAME/g' '{}' \+
+
+
 find  .  -type f \( -name '*.img' -o -name '*.mccd' -o -name '*.cbf' \) -print0 | xargs -0 gzip -v --best
 
 function jgrep()
