@@ -50,6 +50,12 @@ rm -f $LOCK
 exit 0
 ```
 
+# git
+
+```
+git archive main | tar -x -C /existing/dir
+```
+
 
 # RFC 3339 date-time now
 
