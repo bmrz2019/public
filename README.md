@@ -461,6 +461,18 @@ the result
 yt-dlp -f 'w[ext=mp4]'
 yt-dlp --min-sleep-interval 2 --max-sleep-interval 4  -f 'b' -S 'filesize~100M'
 yt-dlp --output "%(title)s.%(ext)s" --restrict-filenames -x --audio-format mp3 --match-filters "title~='(?i)\bSTRING-HERE\b'" 
+
+yt-dlp \
+-f 'bv[vcodec~="^(avc)"][height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' \
+'https://www.youtube.com/@/videos' \
+--max-downloads 1 \
+       --match-filter "!is_live & !live & duration>1800 & duration<3600 & availability=public" \
+       --no-part --no-mtime \
+       --abort-on-error --progress \
+       --exec "after_video:date; sleep 3; echo " \
+-o "./NAMEOFCHANNEL %(title).150s.%(ext)s"
+exit 0
+
 ```
 
 
