@@ -1,3 +1,9 @@
+# Sudo
+
+- `sudo -i -u username`
+
+
+
 # Docker
 
 ```
