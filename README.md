@@ -1,7 +1,7 @@
-# Sudo
+# recent
 
 - `sudo -i -u username`
-
+- `tar cf - . | ( cd  /destination/path ; tar xvf -)`
 
 
 # Docker
