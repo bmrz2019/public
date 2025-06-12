@@ -1052,6 +1052,49 @@ build/make/target/board/go_defaults.prop
 
 # Pixel
 
+- walleye
+
+```
+adb shell setprop persist.vendor.charge.start.level 20
+adb shell setprop persist.vendor.charge.stop.level 30
+```
+
+- sargo 
+- `lineage-sdk/sdk/src/java/lineageos/providers/LineageSettings.java`
+```
+diff --git a/sdk/src/java/lineageos/providers/LineageSettings.java b/sdk/src/java/lineageos/providers/LineageSettings.java
+index 98884790..bb7fe8ad 100644
+--- a/sdk/src/java/lineageos/providers/LineageSettings.java
++++ b/sdk/src/java/lineageos/providers/LineageSettings.java
+@@ -1397,7 +1397,7 @@ public final class LineageSettings {
+ 
+         /** @hide */
+         public static final Validator CHARGING_CONTROL_LIMIT_VALIDATOR =
+-                new InclusiveIntegerRangeValidator(70, 100);
++                new InclusiveIntegerRangeValidator(20, 100);
+ 
+         /**
+          * Whether the battery light should be enabled (if hardware supports it)
+```
+- `LineageParts/res/layout/preference_charging_limit.xml`
+
+```
+diff --git a/res/layout/preference_charging_limit.xml b/res/layout/preference_charging_limit.xml
+index 2b4c1879..48c2ebe7 100644
+--- a/res/layout/preference_charging_limit.xml
++++ b/res/layout/preference_charging_limit.xml
+@@ -45,7 +45,7 @@
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:paddingVertical="15dip"
+-        android:min="70"
++        android:min="20"
+         android:max="100" />
+ 
+ </LinearLayout>
+
+```
+
 - Sargo A11 installation
 
 ```
