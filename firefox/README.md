@@ -7,18 +7,16 @@ widget.non-native-theme.scrollbar.style   4
 
 ### policies.json
 
-```
-xattr -r -d com.apple.quarantine /Applications/Firefox.app
-```
+- ```xattr -r -d com.apple.quarantine /Applications/Firefox.app```
 
 #### ExtensionSettings
 
 
-- macOS
-- ```/Applications/Firefox.app/Contents/Resources/distribution/policies.json```
+- macOS: `/Applications/Firefox.app/Contents/Resources/distribution/policies.json`
+- linux: `/etc/firefox/policies/policies.json`
 
-```
-{
+
+```{
     "policies": {
         "ExtensionSettings": {
             "uBlock0@raymondhill.net": {
@@ -42,11 +40,11 @@ xattr -r -d com.apple.quarantine /Applications/Firefox.app
             "TopSites": false
         },
         "Homepage": {
+            "URL": "https://www.google.com",
             "StartPage": "none"
         },
         "OverrideFirstRunPage": "",
         "OverridePostUpdatePage": ""
     }
-}
-```
+}```
 
