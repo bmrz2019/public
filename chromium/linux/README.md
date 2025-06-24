@@ -9,7 +9,7 @@
 
 ```
 {
-        "ExtensionInstallForcelist": ["ddkjiahejlhfcafbddmgiahcphecmpfh","pmcmeagblkinmogikoikkdjiligflglb"],
+        "ExtensionInstallForcelist": ["ddkjiahejlhfcafbddmgiahcphecmpfh"],
         "ExtensionSettings": {
                 "ddkjiahejlhfcafbddmgiahcphecmpfh": {
                         "installation_mode": "normal_installed",
