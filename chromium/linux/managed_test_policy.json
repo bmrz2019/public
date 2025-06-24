@@ -64,17 +64,17 @@
         "ScrollToTextFragmentEnabled": false,
         "NativeMessagingUserLevelHosts": false,
         "DefaultWebBluetoothGuardSetting": 2,
-	"ShowFullUrlsInAddressBar": true,
+        "ShowFullUrlsInAddressBar": true,
         "SpellcheckEnabled": true,
         "SpellcheckLanguage": ["en-GB","de"],
-	"ExtensionInstallForcelist": ["cjpalhdlnbpafiamejdnhcphjbkeiagm","pmcmeagblkinmogikoikkdjiligflglb"],
+	     "ExtensionInstallForcelist": ["mnjggcdmjocbbbhaepdhchncahnbgone","ddkjiahejlhfcafbddmgiahcphecmpfh"],
 	"ExtensionSettings": {
-		"cjpalhdlnbpafiamejdnhcphjbkeiagm": {
+		"ddkjiahejlhfcafbddmgiahcphecmpfh": {
 			"installation_mode": "normal_installed",
 			"update_url": "https://clients2.google.com/service/update2/crx",
 			"toolbar_pin": "force_pinned"
 		},
-		"pmcmeagblkinmogikoikkdjiligflglb": {
+		"mnjggcdmjocbbbhaepdhchncahnbgone": {
 			"installation_mode": "normal_installed",
 			"update_url": "https://clients2.google.com/service/update2/crx",
 			"toolbar_pin": "force_pinned"
