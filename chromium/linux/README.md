@@ -7,7 +7,8 @@
 
 - Contents of the file
 
-```{
+```
+{
         "ExtensionInstallForcelist": ["ddkjiahejlhfcafbddmgiahcphecmpfh","pmcmeagblkinmogikoikkdjiligflglb"],
         "ExtensionSettings": {
                 "ddkjiahejlhfcafbddmgiahcphecmpfh": {
@@ -16,4 +17,5 @@
                         "toolbar_pin": "force_pinned"
                 },
         }
-}```
+}
+```
