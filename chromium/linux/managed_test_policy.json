@@ -1,6 +1,5 @@
 {
         "DefaultNotificationsSetting": 2,
-        "HomepageLocation": "https://start.duckduckgo.com",
         "DefaultGeolocationSetting": 2,
         "BrowserSignin": 2,
         "AutoplayAllowed": false,
@@ -67,10 +66,9 @@
         "ShowFullUrlsInAddressBar": true,
         "SpellcheckEnabled": true,
         "SpellcheckLanguage": ["en-GB","de"],
-	     "ExtensionInstallForcelist": ["mnjggcdmjocbbbhaepdhchncahnbgone","ddkjiahejlhfcafbddmgiahcphecmpfh"],
 	"ExtensionSettings": {
 		"ddkjiahejlhfcafbddmgiahcphecmpfh": {
-			"installation_mode": "normal_installed",
+			"installation_mode": "force_installed",
 			"update_url": "https://clients2.google.com/service/update2/crx",
 			"toolbar_pin": "force_pinned"
 		},

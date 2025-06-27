@@ -1,6 +1,6 @@
 # Create file at
 
-- Chromium `/etc/chromium-browser/policies/managed/managed_test_policy.json`
+- Chromium `/etc/chromium/policies/managed/managed_test_policy.json`
 
 
 - File for google chrome `/etc/opt/chrome/policies/managed/policy.json`
