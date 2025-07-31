@@ -2,6 +2,7 @@
 
 - `sudo -i -u username`
 - `tar cf - . | ( cd  /destination/path ; tar xvf -)`
+- `pdfposter  -pa2  -ma4  input.pdf output.pdf`
 
 
 # Docker
