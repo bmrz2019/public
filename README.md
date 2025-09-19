@@ -456,7 +456,44 @@ systemctl disable secureboot-db.service
 journalctl -o short-precise -b -u secureboot-db.service
 ```
 
-# test for hibernate
+# hibernate
+
+- Allow remote users to reboot
+- Create (as root) a file named `/etc/polkit-1/rules.d/10-shutdown-reboot.rules`:
+
+```
+polkit.addRule(function(action, subject) {
+    if ((action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+         action.id == "org.freedesktop.login1.reboot" ||
+         action.id == "org.freedesktop.login1.suspend-multiple-sessions" ||
+         action.id == "org.freedesktop.login1.suspend" ||
+         action.id == "org.freedesktop.login1.hibernate-multiple-sessions" ||
+         action.id == "org.freedesktop.login1.hibernate" ||
+         action.id == "org.freedesktop.login1.power-off-multiple-sessions" ||
+         action.id == "org.freedesktop.login1.power-off") &&
+        (subject.isInGroup("sudo") || (subject.user == "root")))
+    {
+        return polkit.Result.YES;
+    }
+});
+```
+
+- Create (as root) a file named `/etc/polkit-1/rules.d/10-enable-hibernate.rules`:
+
+```
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.login1.hibernate" ||
+        action.id == "org.freedesktop.login1.hibernate-multiple-sessions" ||
+        action.id == "org.freedesktop.upower.hibernate" ||
+        action.id == "org.freedesktop.login1.handle-hibernate-key" ||
+        action.id == "org.freedesktop.login1.hibernate-ignore-inhibit")
+    {
+        return polkit.Result.YES;
+    }
+});
+```
+- Test
+
 `user@laptop: ~ $ busctl call org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager CanHibernate`
 
 the result
