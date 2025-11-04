@@ -4,6 +4,13 @@
 - `tar cf - . | ( cd  /destination/path ; tar xvf -)`
 - `pdfposter  -pa2  -ma4  input.pdf output.pdf`
 
+```
+lsusb | grep -i seagate
+Bus 004 Device 012: ID 0bc2:2037 Seagate
+```
+
+- `echo "0x0bc2:0x2344:u" | sudo tee /sys/module/usb_storage/parameters/quirks`
+
 
 # Docker
 
