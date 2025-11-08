@@ -12,6 +12,17 @@ Bus 004 Device 012: ID 0bc2:2037 Seagate
 - `echo "0x0bc2:0x2344:u" | sudo tee /sys/module/usb_storage/parameters/quirks`
 
 
+
+# disable pulseaudio HDMI 
+
+- Edit `/etc/pulse/default.pa`
+
+and comment the line. (i.e) add an # in the front
+
+```
+#load-module module-switch-on-port-available
+```
+
 # Docker
 
 ```
