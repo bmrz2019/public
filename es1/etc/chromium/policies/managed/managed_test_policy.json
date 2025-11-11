@@ -1,30 +1,23 @@
 {
         "DefaultNotificationsSetting": 2,
         "DefaultGeolocationSetting": 2,
-        "BrowserSignin": 2,
-        "CloudPrintProxyEnabled": false,
         "CloudPrintSubmitEnabled": false,
         "SpellCheckServiceEnabled": false,
-        "TranslateEnabled": false,
-        "SearchSuggestEnabled": false,
+        "SearchSuggestEnabled": true,
         "NetworkPredictionOptions": 2,
         "BrowserNetworkTimeQueriesEnabled": false,
         "MetricsReportingEnabled": false,
         "SafeBrowsingProtectionLevel": 0,
-        "DefaultCookiesSetting": 4,
         "SavingBrowserHistoryDisabled": true,
+        "HomepageLocation": "https://www.google.com",
         "ForcedLanguages": ["en-GB",
                 "en-US"],
         "SyncTypesListDisabled": ["tabs",
                 "apps"],
-        "CookiesSessionOnlyForUrls": ["app.slack.com",
-                "[*.]exampleexamplexample.com"
-        ],
         "CookiesAllowedForUrls": ["[*.]instagram.com",
                 "[*.]facebook.com",
                 "[*.]kleinanzeigen.de",
                 "[*.]reddit.com",
-                "[*.]uni-heidelberg.de",
                 "[*.]whatsapp.com",
                 "[*.]twitter.com",
                 "[*.]gitpod.io",
@@ -53,10 +46,7 @@
                 "[*.].convertkit.com",
                 "https://www.11facebook.com"],
         "CookiesBlockedForUrls": [
-                "[*.]ft.com",
                 "[*.]distractify.com",
-                "[*.]idealo.de",
-                "[*.]geizhals.de",
                 "[*.]mashable.com",
                 "[*.]on.mash.to",
                 "[*.]emuparadise.me",
@@ -80,22 +70,22 @@
         ],
         "JavaScriptBlockedForUrls": [
                 "[*.]medium.com",
+                "[*.]cnn.com",
                 "[*.]nytimes.com",
                 "[*.]cnbc.com",
                 "[*.]theguardian.com",
-                "[*.]bbc.com",
+                "[*.]bddddbc.com",
                 "[*.]straitstimes.com",
                 "[*.]bloomberg.com",
                 "[*.]rrrradiotimes.com",
                 "[*.]substack.com",
-                "[*.]washingtonpost.com",
                 "[*.]economist.com",
                 "[*.]dailymail.co.uk",
                 "[*.]dddddiscord.com",
                 "ads.golem.de",
                 "cpx.golem.de",
                 "[*.]bbcuuuu.com",
-                "[*.]bbc.co.uk"
+                "[*.]bddddddddddbc.co.uk"
         ],
         "BackgroundModeEnabled": false,
         "VideoCaptureAllowed": true,
@@ -106,5 +96,25 @@
         "DefaultWebBluetoothGuardSetting": 2,
 	"ShowFullUrlsInAddressBar": true,
         "SpellcheckEnabled": true,
-        "SpellcheckLanguage": ["en-GB","de"]
+        "SpellcheckLanguage": ["en-GB","de"],
+        "ExtensionInstallForcelist": ["ddkjiahejlhfcafbddmgiahcphecmpfh","cclelndahbckbenkjhflpdbgdldlbecc"],
+        "ExtensionSettings": {
+                "ddkjiahejlhfcafbddmgiahcphecmpfh": {
+                        "installation_mode": "normal_installed",
+                        "update_url": "https://clients2.google.com/service/update2/crx",
+                        "toolbar_pin": "force_pinned"
+                },
+                "cclelndahbckbenkjhflpdbgdldlbecc": {
+                        "installation_mode": "normal_installed",
+                        "update_url": "https://clients2.google.com/service/update2/crx",
+                        "toolbar_pin": "force_pinned"
+                },
+                "ndpmhjnlfkgfalaieeneneenijondgag": {
+                        "installation_mode": "normal_installed",
+                        "update_url": "https://clients2.google.com/service/update2/crx",
+                        "toolbar_pin": "force_pinned"
+                }
+
+
+}
 }
