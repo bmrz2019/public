@@ -17,7 +17,7 @@ Bus 004 Device 012: ID 0bc2:2037 Seagate
 ```
 systemctl --user stop gvfs-mtp-volume-monitor.service gvfs-gphoto2-volume-monitor
 systemctl --user disable gvfs-mtp-volume-monitor.service gvfs-gphoto2-volume-monitor
-killall gvfs-gphoto2-volume-monitor
+killall gvfs-gphoto2-volume-monitor gvfs-mtp-volume-monitor
 ```
 
 
