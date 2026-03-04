@@ -1,6 +1,9 @@
 {
         "DefaultNotificationsSetting": 2,
         "DefaultGeolocationSetting": 2,
+        "AIModeSettings": 1,
+        "GenAiDefaultSettings": 2,
+        "SearchContentSharingSettings": 1,
         "CloudPrintSubmitEnabled": false,
         "SpellCheckServiceEnabled": false,
         "SearchSuggestEnabled": true,
@@ -97,14 +100,9 @@
 	"ShowFullUrlsInAddressBar": true,
         "SpellcheckEnabled": true,
         "SpellcheckLanguage": ["en-GB","de"],
-        "ExtensionInstallForcelist": ["ddkjiahejlhfcafbddmgiahcphecmpfh","cclelndahbckbenkjhflpdbgdldlbecc"],
+        "ExtensionInstallForcelist": ["ddkjiahejlhfcafbddmgiahcphecmpfh"],
         "ExtensionSettings": {
                 "ddkjiahejlhfcafbddmgiahcphecmpfh": {
-                        "installation_mode": "normal_installed",
-                        "update_url": "https://clients2.google.com/service/update2/crx",
-                        "toolbar_pin": "force_pinned"
-                },
-                "cclelndahbckbenkjhflpdbgdldlbecc": {
                         "installation_mode": "normal_installed",
                         "update_url": "https://clients2.google.com/service/update2/crx",
                         "toolbar_pin": "force_pinned"
