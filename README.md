@@ -1,5 +1,6 @@
 # recent
 
+- `xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch -s true`
 - `sudo -i -u username`
 - `tar cf - . | ( cd  /destination/path ; tar xvf -)`
 - `pdfposter  -pa2  -ma4  input.pdf output.pdf`
