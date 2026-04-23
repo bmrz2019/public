@@ -1,5 +1,13 @@
 ### about:config
 
+- For increasing scrollbar width
+
+```
+widget.gtk.overlay-scrollbars.enabled  false
+widget.non-native-theme.gtk.scrollbar.thumb-size 1
+
+- For really wide scrollbar use
+
 ```
 widget.gtk.overlay-scrollbars.enabled  false
 widget.non-native-theme.scrollbar.style   4
