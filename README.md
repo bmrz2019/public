@@ -1,7 +1,7 @@
 # Recent
 
 ### Allow username to mount filesystems in debian
-/etc/polkit-1/rules.d/10-allow-mount.rules
+`/etc/polkit-1/rules.d/10-allow-mount.rules`
 
 ```
 polkit.addRule(function(action, subject) {
