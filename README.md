@@ -1,5 +1,14 @@
 # Recent
 
+### Android list media files
+```
+adb shell 'find /storage/emulated/0 \
+  \( -iname Android -o -iname DCIM -o -iname Pictures \) -prune -o \
+  -type f \
+  \( -iname "*.mkv" -o -iname "*.mp4" -o -iname "*.webm" \) \
+  ! -iname "VID*.mp4"'
+```
+
 ### Allow username to mount filesystems in debian
 `/etc/polkit-1/rules.d/10-allow-mount.rules`
 
