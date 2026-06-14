@@ -2,6 +2,19 @@
 
 ### pulse audio
 
+```
+pacmd list-sinks | grep -e name: -e index -e description
+  * index: 30
+	name: <bluez_sink.A1_B2_C3_D4_E5_F6.a2dp_sink>
+		device.description = "Grundig BAND"
+    index: 31
+	name: <alsa_output.pci-0000_07_00.6.HiFi__Speaker__sink>
+		device.profile.description = "Speaker"
+		device.description = "Ryzen HD Audio Controller Speaker"
+user@acer: ~/bin $ pactl set-default-sink 31
+user@acer: ~/bin $ pactl set-default-sink 30
+```
+
 For auto-switch add to `/etc/pulse/default.pa` this line
 `load-module module-switch-on-connect`
 
