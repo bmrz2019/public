@@ -1,6 +1,20 @@
 # Recent
 
+### pulse audio
+
+For auto-switch add to `/etc/pulse/default.pa` this line
+`load-module module-switch-on-connect`
+
+Use this commandline for
+
+```
+pactl list cards
+pactl set-card-profile  bluez_card.A1_B2_C3_D4_E5_F6  off
+pactl set-card-profile  bluez_card.A1_B2_C3_D4_E5_F6 a2dp_sink
+```
+
 ### Android list media files
+
 ```
 adb shell 'find /storage/emulated/0 \
   \( -iname Android -o -iname DCIM -o -iname Pictures \) -prune -o \
@@ -10,6 +24,7 @@ adb shell 'find /storage/emulated/0 \
 ```
 
 ### Allow username to mount filesystems in debian
+
 `/etc/polkit-1/rules.d/10-allow-mount.rules`
 
 ```
