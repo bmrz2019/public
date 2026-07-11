@@ -64,7 +64,18 @@ widget.non-native-theme.scrollbar.style   4
     "OverridePostUpdatePage": "",
     "DownloadDirectory": "/tmp",
     "DisplayMenuBar": "always",
-    "DisplayBookmarksToolbar": "always"
+    "DisplayBookmarksToolbar": "always",
+    "Preferences": {
+      "browser.tabs.drawInTitlebar": {
+        "Value": 0
+      },
+      "widget.non-native-theme.scrollbar.style": {
+        "Value": 1
+      },
+      "widget.non-native-theme.enabled": {
+        "Value": true
+      }
+    }
   }
 }
 ```
