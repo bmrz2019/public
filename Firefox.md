@@ -26,35 +26,46 @@ widget.non-native-theme.scrollbar.style   4
 - linux: `/etc/firefox/policies/policies.json`
 
 
-```{
-    "policies": {
-        "ExtensionSettings": {
-            "uBlock0@raymondhill.net": {
-                "installation_mode": "force_installed",
-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
-            },
-            "https-everywhere@eff.org": {
-                "installation_mode": "allowed",
-                "updates_disabled": false
-            }
-        },
-        "DisableFirefoxStudies": true,
-        "DisablePocket": true,
-        "DisableTelemetry": true,
-        "DontCheckDefaultBrowser": true,
-        "FirefoxHome": {
-            "Highlights": false,
-            "Pocket": false,
-            "Search": false,
-            "Snippets": false,
-            "TopSites": false
-        },
-        "Homepage": {
-            "URL": "https://www.google.com",
-            "StartPage": "none"
-        },
-        "OverrideFirstRunPage": "",
-        "OverridePostUpdatePage": ""
-    }
-}```
+```
+{
+  "policies": {
+    "AIControls": {
+      "Default": {
+        "Value": "blocked",
+        "Locked": true
+      },
+      "Translations": {
+        "Value": "available",
+        "Locked": false
+      }
+    },
+    "ExtensionSettings": {
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+      }
+    },
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DisableTelemetry": true,
+    "DontCheckDefaultBrowser": true,
+    "FirefoxHome": {
+      "Highlights": false,
+      "Pocket": false,
+      "Search": false,
+      "Snippets": false,
+      "TopSites": false
+    },
+    "Homepage": {
+      "URL": "https://www.google.com",
+      "StartPage": "none"
+    },
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "DownloadDirectory": "/tmp",
+    "DisplayMenuBar": "always",
+    "DisplayBookmarksToolbar": "always"
+  }
+}
+```
 
