@@ -1,5 +1,15 @@
 # Recent
 
+### eduVPN
+
+```
+eduvpn-cli connect -c https://eduvpn1.eduvpn.de
+eduvpn-cli connect -c https://eduvpn.uni-heidelberg.de
+eduvpn-cli list
+eduvpn-cli status
+eduvpn-cli disconnect
+```
+
 ### pulse audio
 
 ```
