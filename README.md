@@ -1,6 +1,29 @@
 # Recent
 
 
+### Openbox config for volume
+
+- Edit file `.config/openbox/lxde-rc.xml`
+
+```
+    <!-- Keybinding for Volume management -->
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>pactl set-sink-volume @DEFAULT_SINK@ +10%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>pactl set-sink-volume @DEFAULT_SINK@ -10%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>pactl set-sink-mute @DEFAULT_SINK@ toggle</command>
+      </action>
+    </keybind>
+```
+
 
 ### eduVPN
 
