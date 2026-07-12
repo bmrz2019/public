@@ -1,6 +1,10 @@
 # Recent
 
+
+
 ### eduVPN
+
+- What is my ip https://ipinfo.io/what-is-my-ip
 
 ```
 eduvpn-cli connect -c https://eduvpn1.eduvpn.de
