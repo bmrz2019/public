@@ -1,6 +1,22 @@
 # Recent
 
 
+### Debian clear /tmp upon startup
+
+- Create file `/etc/tmpfiles.d/tmp.conf`
+
+```
+D /tmp 1777 root root -
+```
+
+- Test
+```
+$ systemctl status systemd-tmpfiles-setup.service
+● systemd-tmpfiles-setup.service - Create System Files and Directories
+     Loaded: loaded (/usr/lib/systemd/system/systemd-tmpfiles-setup.service; static)
+     Active: active (exited) since Thu 2026-07-09 08:00:35 CEST; 5 days ago
+```
+
 ### Openbox config for volume
 
 - Edit file `.config/openbox/lxde-rc.xml`
