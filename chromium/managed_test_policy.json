@@ -17,6 +17,11 @@
   ],
   "SyncTypesListDisabled": [
     "typedUrls",
+    "autofill",
+    "readingList",
+    "productComparison",
+    "preferences",
+    "payments",
     "tabs",
     "apps"
   ],
