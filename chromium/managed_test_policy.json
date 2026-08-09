@@ -15,6 +15,11 @@
     "en-GB",
     "en-US"
   ],
+  "DefaultIdleDetectionSetting": 3,
+  "IdleDetectionBlockedForUrls": [
+    "https://music.youtube.com",
+    "https://www.youtube.com"
+  ],
   "SyncTypesListDisabled": [
     "typedUrls",
     "autofill",
