@@ -29,6 +29,55 @@ widget.non-native-theme.scrollbar.style   4
 ```
 {
   "policies": {
+    "Cookies": {
+      "AllowSession": [
+        "https://chatgpt.com",
+        "https://openai.com",
+        "https://chat.com",
+        "https://oaistatic.com",
+        "https://oaiusercontent.com",
+        "https://oaistatsig.com",
+        "https://reddit.com",
+        "https://redd.it",
+        "https://redditstatic.com",
+        "https://redditmedia.com",
+        "https://youtube.com",
+        "https://youtu.be",
+        "https://youtube-nocookie.com",
+        "https://googlevideo.com",
+        "https://ytimg.com",
+        "https://ggpht.com",
+        "https://x.com",
+        "https://twitter.com",
+        "https://t.co",
+        "https://twimg.com",
+        "https://periscope.tv"
+      ],
+      "Block": [
+        "https://aboutads.net",
+        "https://adf.ly",
+        "https://alloutdoor.com",
+        "https://allrecipes.com",
+        "https://allwebgallery.com",
+        "https://animalsandsociety.org",
+        "https://ansible.com",
+        "https://answers.com",
+        "https://ask.com",
+        "https://assets.boredpanda.com",
+        "https://viralcrunch.com",
+        "https://viralthread.com",
+        "https://wideopenpets.com"
+      ]
+    },
+
+    "SanitizeOnShutdown": {
+      "Cache": true,
+      "Cookies": false,
+      "FormData": false,
+      "History": true,
+      "Sessions": false,
+      "SiteSettings": false
+    },
     "AIControls": {
       "Default": {
         "Value": "blocked",
@@ -78,5 +127,6 @@ widget.non-native-theme.scrollbar.style   4
     }
   }
 }
+
 ```
 
