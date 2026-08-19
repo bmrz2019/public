@@ -1,6 +1,9 @@
 {
   "DefaultGeolocationSetting": 2,
   "AIModeSettings": 1,
+  "GenAiDefaultSettings": 2,
+  "GenAILocalFoundationalModelSettings": 1,
+  "DevToolsGenAiSettings": 1,
   "GeminiSettings": 1,
   "SearchContentSharingSettings": 1,
   "SpellCheckServiceEnabled": false,
@@ -26,7 +29,6 @@
     "readingList",
     "productComparison",
     "preferences",
-    "payments",
     "tabs",
     "apps"
   ],
