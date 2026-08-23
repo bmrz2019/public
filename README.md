@@ -1,6 +1,10 @@
 # Recent
 
 
+### sed
+
+- ```sed -n 's|.*drive.google.com/file/d/\([^/]*\).*|\1|p' ```
+
 ### Debian clear /tmp upon startup
 
 - Create file `/etc/tmpfiles.d/tmp.conf`
