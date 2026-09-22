@@ -31,22 +31,6 @@ widget.non-native-theme.scrollbar.style   4
   "policies": {
     "Cookies": {
       "AllowSession": [
-        "https://chatgpt.com",
-        "https://openai.com",
-        "https://chat.com",
-        "https://oaistatic.com",
-        "https://oaiusercontent.com",
-        "https://oaistatsig.com",
-        "https://reddit.com",
-        "https://redd.it",
-        "https://redditstatic.com",
-        "https://redditmedia.com",
-        "https://youtube.com",
-        "https://youtu.be",
-        "https://youtube-nocookie.com",
-        "https://googlevideo.com",
-        "https://ytimg.com",
-        "https://ggpht.com",
         "https://x.com",
         "https://twitter.com",
         "https://t.co",
@@ -118,6 +102,10 @@ widget.non-native-theme.scrollbar.style   4
       "browser.tabs.drawInTitlebar": {
         "Value": 0
       },
+      "geo.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
       "widget.non-native-theme.scrollbar.style": {
         "Value": 1
       },
@@ -127,6 +115,5 @@ widget.non-native-theme.scrollbar.style   4
     }
   }
 }
-
 ```
 
