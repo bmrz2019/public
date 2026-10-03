@@ -1,5 +1,11 @@
 # Recent
 
+### dmesg
+
+```
+usermod -aG systemd-journal $USER
+journalctl -k -o cat --no-pager
+```
 
 ### sed
 
